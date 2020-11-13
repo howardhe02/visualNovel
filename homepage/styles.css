@@ -1,0 +1,222 @@
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/8
+Description:This is the css for the game homepages.
+*/
+#headBar{
+	position: relative;
+	margin: 0;
+	display: inline-block;
+	background: rgba(188, 0, 126);
+	color: #fff399;
+	font-family: 'Allerta Stencil', sans-serif;
+	width: 85%;
+	height: 50px;
+	left: 20%;
+}
+
+#cntHeadbar{
+	width: 100%;
+	border-style: solid;
+}
+
+a{
+	text-decoration: none;
+	color: #fff399;
+}
+.headBarValue {
+	display: inline-block;
+	padding: 10px;
+	width: 10%;
+	height:30px;
+	text-align: center;
+	transition: 0.6s;
+}
+
+.headBarValue:hover{
+	background-color: #d60095;
+}
+body{
+	margin: 0;
+	background-image: url("../images/animeBackground.png");
+	width: 100%;
+	overflow-x: hidden;
+	color: #fff399;
+	font-family: 'Allerta Stencil', sans-serif;
+}
+
+#homeButton{
+	position: absolute;
+	display: inline-block;
+	width: 20%;
+	height: 50px;
+	font-family: 'Spicy Rice', cursive;
+	font-size: 170%;
+	background-color:white ;
+	color: black;
+	transition: 0.6s;
+}
+
+#homeButton:hover{
+	background-color: black;
+	color: white;
+}
+
+h1{
+	position: relative;
+	color: #fff399;
+	font-family: 'Spicy Rice', cursive;
+	text-shadow:
+	-2px -2px 0 #5d5ec1,
+	2px -2px 0 #5d5ec1,
+	-2px 2px 0 #5d5ec1,
+	2px 2px 0 #5d5ec1;
+	text-align: center;
+}
+
+.cntContent{
+	position: absolute;
+	bottom: 10%;
+	color: #9205ff;
+	width: 40%;
+	height: 400px;
+	padding: 10px;
+	text-align: center;
+	border-style: solid;
+	background-color: lightpink;
+	opacity: 0.9;
+}
+
+.title{
+	font-size: 500%;
+	color: #d8c93c;
+	text-align: center;
+	text-shadow:
+	-2px -2px 0 #5d5ec1,
+	2px -2px 0 #5d5ec1,
+	-2px 2px 0 #5d5ec1,
+	2px 2px 0 #5d5ec1;
+}
+
+#sideGirl1{
+	position: absolute;
+	height: 25%;
+	width: 10%;
+	top: 6%;
+	left: 19%;
+}
+#cntScreens
+{
+	position: absolute;
+	bottom: 10%;
+	color: #9205ff;
+	left: 3%;
+	width: 90%;
+	height: 450px;
+	padding: 10px;
+	text-align: center;
+	border-style: solid;
+	background-color: lightpink;
+	opacity: 0.9;
+}
+
+#byWho{
+	position: absolute;
+	top: 18%;
+	left: 37%;
+	font-size: 2em;
+	text-shadow:
+	-2px -2px 0 #5d5ec1,
+	2px -2px 0 #5d5ec1,
+	-2px 2px 0 #5d5ec1,
+	2px 2px 0 #5d5ec1;
+}
+
+.cntRow{
+	height: 505px;
+	border-style: solid;
+	width: 90%;
+	margin-left: 4%;
+	padding: 10px;
+	display: inline-block;
+	overflow: hidden;
+	margin-top: 50px;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.cntColumn1{
+	position: absolute;
+	height: 480px;
+	border-style: solid;
+	left: 5%;
+	width: 50%;
+}
+
+.cntColumn2{
+	position: absolute;
+	width: 35%;
+	border-style: solid;
+	border-color: #fff399;
+	right: 6%;
+	color: black;
+	padding: 20px;
+	height: 440px;
+}
+
+.screenshotImg{
+	height: 100%;
+}
+.screenshotImg2{
+	height: 100%;
+	width: 100%;
+}
+
+.problemSolvingImages{
+	width: 100%;
+}
+
+#instructonBox{
+	height: 500px;
+	width: 90%;
+	margin-left: 4%;
+	border-style: solid;
+	background-color: lightpink;
+	padding: 10px;
+	color: darkblue;
+}
+
+#IPO-PCODE-FLOW{
+	border-style: solid;
+	border-color: #fff399;
+	background-color: rgba(255, 255, 255, 0.9);
+	color: black;
+	width: 90%;
+	margin-left: 3%;
+	padding: 20px;
+}
+
+.columnOf3Row{
+	width: 30%;
+	margin: 1%;
+	border-style: solid;
+	border-color: #fff399;
+	background-color: rgba(255, 255, 255, 0.9);
+	display: inline-block;
+	top:0%;
+}
+#btnTxtFile
+{
+	text-align: center;
+	border-style: solid;
+	position: absolute;
+	right: 43%;
+	top: 25%;
+	height: 50px;
+	width: 300px;
+	color: #fff399;
+	background: rgba(188, 0, 126);
+	font-size: 24px;
+	font-family: 'Allerta Stencil', sans-serif;
+
+}

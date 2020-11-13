@@ -1,0 +1,71 @@
+<!--
+Title: Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/8/11
+Description:This is the html page for the matching game. This is the page where you play the game.
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Card Match Checkpoint
+		</title>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="cardMatchGame.js"></script>
+		<link rel="stylesheet" type="text/css" href="cardMatchGame.css">
+	</head>
+
+	<body>
+		<div id="gameScreenCardMatchGame">
+			<div id="topBar">
+				Card Matching Game
+			</div>
+
+			<div id="gameSideBox">
+				<div class="menuBox" id="correctPairs">
+					Pairs: 0
+				</div>
+
+				<div class="menuBox" id="cardMatchingGamelives">
+					Lives Left: 3
+				</div>
+
+				<div class="menuBox menuBtn" id="btnHighScores">
+					HighScores!
+				</div>
+
+				<div class="menuBox menuBtn" id="btnQuit">
+					QUIT!
+				</div>
+			</div>
+
+			<div id="gameTable">
+				<div id='gameTableHider'>
+					
+				</div>
+
+				<div id="nextButtonCardMatchGame">
+					NEXT!
+				</div>
+
+				<div id="cntHighScores">
+					<div id="highScoreTitle">
+						Highest Scores:
+					</div>
+
+					<div class="highScoreNumbersCardGuess" id="firstPlaceScore">
+						Aqua: 20
+					</div>
+
+					<div class="highScoreNumbersCardGuess" id="secondPlaceScore">
+						Makise: 10
+					</div>
+
+					<div class="highScoreNumbersCardGuess" id="thirdPlaceScore">
+						Hiyori: 5
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,159 @@
+/*
+Title: Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/8/11
+Description: The css for the matching game.
+*/
+body{
+	margin:0;
+}
+
+#gameScreenCardMatchGame{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-image: url(images/cardMatchGameImgs/background.jpg);
+}
+
+#topBar{
+	position: absolute;
+	margin-left: 1%;
+	margin-top: 1%;
+	width: 98%;
+	height: 10%;
+	background-color: black;
+	color: white;
+	border-style: solid;
+	font-size: 8vh;
+	text-align: center;
+}
+
+#gameTable{
+	margin-top: 8%;
+	position: absolute;
+	width: 70%;
+	margin-left: 1%;
+	height: 80%;
+	border-style: solid;
+}
+
+#gameTable{
+	color: black;
+}
+
+#gameSideBox{
+	background-color: black;
+	color: white;
+	position: absolute;
+	margin-left: 72%;
+	margin-top: 8%;
+	width: 27%;
+	border-style: solid;
+	height: 80%;
+}
+
+.cardBoxes, .none{
+	position: relative;
+	background-color: white;
+	height: 40%;
+	display: inline-block;	
+	margin: 2% 5% 2% 4%;
+	width: 15%;
+	border-style: solid;
+	border-radius: 20px;
+	transition: 1s ease;
+	overflow: hidden;
+	color: black;
+}
+
+.cardMatchItems{
+	position: absolute;
+	text-align: center;
+	top: 40%;
+	font-size: 30px;
+	width: 100%;
+
+}
+
+#gameTableHider{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	opacity: 0.5;
+	top: 0;
+}
+
+.cardBoxes:hover{
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+.menuBox{
+	text-align: center;
+	width: 100%;
+	margin-top: 10%;
+	position: relative;
+	border-style: solid;
+	font-weight: 1000;
+	left: -3px;
+	font-size: 50px;
+}
+
+.menuBtn:hover{
+	background-color: white;
+	color: black;
+	cursor: pointer;
+}
+
+.cardCover{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#nextButtonCardMatchGame{
+	position: absolute;
+	width: 500px;
+	border-style: solid;
+	text-align: center;
+	font-size: 6vh;
+	color: white;
+	background-color: black;
+	transition: ease 1s;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	left: 25%;
+	top: 40%;
+}
+
+#nextButtonCardMatchGame:hover{
+	color: black;
+	background-color: white;
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+#cntHighScores{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: grey;
+}
+
+#cntHighScores{
+	color: white;
+	background-color: black;
+	font-size: 8vh;
+	text-align: center;
+}
+
+.highScoreNumbersCardGuess{
+	 margin-top: 5%;
+}
+
+#highScoreTitle{
+	font-weight: 1000;
+	text-decoration: underline;
+}

@@ -1,0 +1,161 @@
+/*
+Title: Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/8/11
+Description: The css for the matching game.
+*/
+body
+{
+	margin-top:0%;
+	margin-left:0%;
+	color: #f4e842;
+	font-family: 'PT Sans', sans-serif;
+}
+
+.groupHint{
+	border-style: solid;
+	border-radius: 5px;
+	padding: 15px;
+}
+
+#btnGuess{
+	background-color: lightblue;
+}
+#sajeivsQuitButtonForHisGame{
+	position: absolute;
+	border-style: solid;
+	background-color: lightgrey;
+	border-radius: 20px;
+	text-align: center;
+	font-size: 6vh;
+	color: darkblue;
+	bottom: 5%;
+	height: 8%;
+	width: 20%;
+	right: 5%;
+	transition: 1s ease;
+}
+
+#sajeivsQuitButtonForHisGame:hover{
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+#cntGuessingGame
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url(images/background.jpg);
+}
+#cntGameSajeivGame
+{
+	position: absolute;
+	width: 90%;
+	height: 90%;
+	opacity: 0.9;
+	border-style: solid;
+	background-color: lightpink;
+	top:6%;
+	right:4.5%;
+}
+
+#cntLoser
+{
+	position: absolute;
+	width: 90%;
+	height: 90%;
+	opacity: 0.7;
+	border-style: solid;
+	background-color: lightpink;
+	top:6%;
+	right:4.5%;
+	background-image: url(images/loser.jpg);
+	background-size: 100%;
+}
+.groupTitle
+{
+	text-align: center;
+}
+.groupSubTitle
+{
+	text-align: center;
+}
+#round1
+{	
+	position: absolute;
+	right: 43%;
+	top: 70%;
+
+}
+#round2
+{	
+	position: absolute;
+	right: 43%;
+	top:70%; /*30*/
+}
+#round3
+{	
+	position: absolute;
+	right: 43%; 
+	top:70%; /*40*/
+}
+#round4
+{	
+	position: absolute;
+	right: 43%;
+	top:70%;
+}
+#round5
+{	
+	position: absolute;
+	right: 43%;
+	top:70%;
+}
+#cntLives
+{
+	position: absolute;
+	right: 45%;
+	top: 85%;
+	font-size: 40px;
+
+}
+#round1Complete
+{	
+	right: 40%;
+	position: absolute;
+	top: 20%;
+	font-size: 20px;
+	font-family: impact;
+	color: red;
+}
+.groupHint
+{
+	position: absolute;
+	right: 40%;
+	top: 75%;
+	text-align: center;
+}
+#cntGamePicture
+{
+	position: absolute;
+	width: 50%;
+	height: 45%;
+	top: 20%;
+	right: 25%;
+	border-style: solid;
+	background-color: lightblue;
+}
+.gamePicture
+{
+	height: 100%;
+	width: 100%;
+}
+.groupGuess
+{
+	right: 45%;
+}
+#cntHint3
+{
+	right: 45%;
+}

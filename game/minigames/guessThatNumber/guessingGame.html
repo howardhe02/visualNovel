@@ -1,0 +1,91 @@
+<!--
+Title: Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/8/11
+Description:This is the html page for the guessing game. This is the page where you play the game.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guessing Numbers</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="guessingGame.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+</head>
+<body>
+	<div id="cntGuessingGame">
+		<div id="cntLoser">
+			
+		</div>
+
+		<div id="cntGameSajeivGame">
+			<h1 class="groupTitle">Number Guessing Game</h1>
+			<h3 id="questionStatement" class="groupSubTitle">Guess the number of dogs in the picture:</h3>
+		</div>
+
+		<div id="round1">
+			<input type="text" id="txtGuess" class="groupGuess"><button id="btnGuess" class="groupGuess">Guess</button>
+			<br>
+		</div>
+
+		<div id="cntHint" class=groupHint>
+				HINT: IT'S A NUMBER BETWEEN 1 and 10!
+		</div>
+
+		<div id="round2">
+			<input type="text" id="txtGuess2" class="groupGuess"><button id="btnGuess2" class="groupGuess">Guess</button>
+			<br>
+		</div>
+
+		<div id="cntHint2" class=groupHint>
+				HINT: IT'S A NUMBER BETWEEN 10 and 30!
+		</div>
+
+		<div id="round3">
+			<input type="text" id="txtGuess3" class="groupGuess"><button id="btnGuess3" class="groupGuess">Guess</button>
+			<br>
+		</div>
+
+		<div id="cntHint3" class=groupHint>
+				HINT: There is less than 50!
+		</div>
+
+		<div id="round4">
+			<input type="text" id="txtGuess4" class="groupGuess"><button id="btnGuess4" class="groupGuess">Guess</button>
+			<br>
+		</div>
+
+		<div id="cntHint4" class=groupHint>
+				HINT: IT'S A NUMBER BETWEEN 1 and 500!
+		</div>
+
+		<div id="round5">
+			<input type="text" id="txtGuess5" class="groupGuess"><button id="btnGuess5" class="groupGuess">Guess</button>
+			<br>
+		</div>
+
+		<div id="cntHint5" class=groupHint>
+				HINT: Remember to convert into cents?
+		</div>
+
+		<div id=cntLives>
+			Lives:20
+		</div>
+
+		<div id="cntGamePicture">
+			<img src="images/question1.jpg" id="question1" class="gamePicture">
+			<img src="images/question2.jpg" id="question2" class="gamePicture">
+			<img src="images/question3.jpg" id="question3" class="gamePicture">
+			<img src="images/question4.png" id="question4" class="gamePicture">
+			<img src="images/question5.jpg" id="question5" class="gamePicture">
+			<img src="images/youWin.jpg" id="youWin" class="gamePicture">
+
+		</div>
+
+		<div id="sajeivsQuitButtonForHisGame">
+			QUIT!
+		</div>
+	</div>
+</body>
+</html>

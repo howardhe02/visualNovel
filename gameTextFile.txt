@@ -1,0 +1,3909 @@
+<!--
+Title: Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/8/11
+Description:This is the html page for the game. This is the page where you play the game.
+-->
+<!DOCTYPE html>
+	<head>
+		<title>
+			Summative Project ICS3U
+		</title>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="dialogue.js"></script>
+		<script type="text/javascript" src="functions.js"></script>
+		<script type="text/javascript" src="code.js"></script>
+		<!-- scene 1 -->
+		<script type="text/javascript" src="scene1/scene_1-1.js"></script>
+		<script type="text/javascript" src="scene1/scene_1-2.js"></script>
+		<script type="text/javascript" src="scene1/scene_1-3.js"></script>
+		<script type="text/javascript" src="scene1/scene_1-4.js"></script>
+		<script type="text/javascript" src="scene1/scene_1-5.js"></script>
+		<!-- scene 2 -->
+		<script type="text/javascript" src="scene2/scene_2-1.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-2a.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-2b.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-2c.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-3.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-4a.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-4b.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-4c.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-5.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-6a.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-6b.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-6c.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<!-- card Match Minigame -->
+		<script type="text/javascript" src="minigames/cardMatchGame/cardMatchGame.js"></script>
+		<link rel="stylesheet" type="text/css" href="minigames/cardMatchGame/cardMatchGame.css">
+		<!-- sajeivs game -->
+		<script type="text/javascript" src="minigames/guessThatNumber/guessingGame.js"></script>
+		<link rel="stylesheet" type="text/css" href="minigames/guessThatNumber/styles.css">
+	</head>
+	<body>
+		<div id="gameMusic">
+			<embed>
+				<audio src="../audio/titleMusic.mp3" id="titleMusic" autoplay hidden></audio>
+			</embed>
+			<audio src="../audio/casualMusic.mp3" id="casualMusic" hidden controls loop class="gameMusic"></audio>
+			<div id="SFXOff">
+				<audio id="characterSounds" controls src="../audio/textSounds.mp3"></audio>
+			</div>
+		</div>
+
+		<div id="startScreen" class="allGamePhases" style="background-image:url(images/schoolFront.png);">
+
+			<div id="startScreenTitle">
+				Loli Harem Paradise
+			</div>
+
+			<!-- the girls in front -->
+			<div class="cntCharacter Aqua" style="left: 10%;"> 
+				<img class="imgCharacter" src="images/girl1/aquaNeutral.png">
+			</div>
+
+			<div class="cntCharacter Makise" style="left: 40%;"> 
+				<img class="imgCharacter" src="images/girl2/makiseNeutral.png">
+			</div>
+
+			<div class="cntCharacter Hiyori" style="left: 65%;"> 
+				<img class="imgCharacter" src="images/girl3/hiyoriHot.png">
+			</div>
+			<!-- this stuff is created after the images so overlaps do not affect interaction -->
+			<div style="position: absolute; top: 20%; font-size: 30px; width: 100%; text-align: center;">
+			<b>What is your name?</b>
+			</div>
+			<input type="text" id="txtPlayerName">
+			<div class="btnCustom" id="btnPlayerName" style="top: 30%; left: 44.5%;">START!</div>
+		</div>
+
+		<div id="gameScreen" class="allGamePhases" style="background-image: url(images/neighborhood.jpg);">
+
+			<div id="settingsIcon">
+				
+			</div>
+			<div id="settingsIconOn">
+				
+			</div>
+			
+			<div id="muteAll" class="musicToggles">
+				
+			</div>
+			<div id="unmuteAll" class="musicToggles">
+				
+			</div>
+			
+
+			<div class="cntCharacter Aqua" style="left: 30%;">
+				<img id="cntAqua" class="imgCharacter" src="images/girl1/aquaNeutral.png">
+			</div>
+			<div class="cntCharacter Hiyori" style="left: 30%;">
+				<img id="cntHiyori" class="imgCharacter" src="images/girl3/hiyoriHot.png">
+			</div>		
+			<div class="cntCharacter Makise" style="left: 40%;">
+				<img id="cntMakise" class="imgCharacter" src="images/girl2/makiseNeutral.png">
+			</div>		
+
+			<div class="cntCharacterText2"></div>
+
+			<div class="cntCharacterText">
+				<div id="speechText">
+				</div>
+			</div>
+
+			<div id="cntOptions" style="color: black;">
+				<div class="btnChoose btnOptions" id="option1">option 1</div>	
+				<br>
+				<div class="btnChoose btnOptions" id="option2">option 2</div>	
+				<br>
+				<div class="btnChoose btnOptions" id="option3">option 3</div>	
+			</div>
+			
+			<div class="btnCustom" id="btnNext" style="bottom:10px; right: 5%;">Next</div>
+
+			<div id="cntMenuPopUp">
+				<div class="menuPopUp" id="affectionMenuPopUp" value="closed">
+					<div class="menuTitles">
+						Affection Levels!
+					</div>
+
+					<div class="cntAffectionBars" id="cntAffectonAqua" style="top: 25%">
+						<div class="cntAffectionCharacterImg">
+							<img id="cntAqua" class="imgCharacter" src="images/girl1/aquaNeutral.png" style="position:absolute; left: 20%">
+						</div>
+
+						<div class="cntRunningOutOfStupidlyLongNamesToNameClasses">
+							<img class="cntAffectionCharacterBar" src="images/affectionBar.png">
+
+							<div class="cntAffectionCharacterBarHider" id="cntAffectionAquaBarHider">
+							</div>
+						</div>
+					</div>
+
+					<div class="cntAffectionBars" id="cntAffectionHiyrori" style="top: 50%;">
+						<div class="cntAffectionCharacterImg">
+							<img id="cntHiyori" class="imgCharacter" src="images/girl3/hiyoriHot.png" style="position:absolute; left: 30%">
+						</div>
+
+						<div class="cntRunningOutOfStupidlyLongNamesToNameClasses">
+							<img class="cntAffectionCharacterBar" src="images/affectionBar.png">
+
+							<div class="cntAffectionCharacterBarHider" id="cntAffectionHiyoriBarHider">
+							</div>
+						</div>
+					</div>
+
+					<div class="cntAffectionBars" id="cntAffectionMakise" style="top: 75%">
+						<div class="cntAffectionCharacterImg">
+							<img id="cntMakise" class="imgCharacter" src="images/girl2/makiseNeutral.png" style="position:absolute; left:30%">
+						</div>
+
+						<div class="cntRunningOutOfStupidlyLongNamesToNameClasses">
+							<img class="cntAffectionCharacterBar" src="images/affectionBar.png">
+
+							<div class="cntAffectionCharacterBarHider" id="cntAffectionMakiseBarHider">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="menuPopUp" id="inventoryMenuPopUp" value="closed">
+					<div class="menuTitles">
+						Inventory!
+					</div>
+
+					<div id="cntItemBox">
+						
+					</div>
+				</div>
+			</div>
+
+			<div id="cntMenus">
+				<div class="btnCustom btnMenu" id="affectionMenuPullUp">
+					<img class="imgMenu" src="images/affectionMenu.png">
+				</div>
+
+				<div style="top: 140px;" class="btnCustom btnMenu" id="inventoryPullUp">
+					<img class="imgMenu" src="images/itemsMenu.png">
+				</div>
+			</div>
+
+			<div class="itemNotifications">
+				Item Obtained:
+				<div class="itemObtainedText">
+					
+				</div>
+			</div>
+
+			<div id="cntSettings">
+				Toggle Music <button class="settingButtons" id="btnMusicOn">ON</button><button class="settingButtons" id="btnMusicOff">OFF</button>
+				<br>
+				Music Volume <button class="settingButtons" id="btnLow">LOW</button>
+				<button class="settingButtons" id="btnMedium">MEDIUM</button>
+				<button class="settingButtons" id="btnHigh">HIGH</button>
+				<br>
+				<button id="btnReset" class="settingButtons">RESET GAME</button>
+				Toggle Text SFX <button class="settingButtons" id="btnSFXOn">ON</button>
+				<button class="settingButtons" id="btnSFXOff">OFF</button>
+				<br>
+				Resolution <button class="settingButtons" id="btnFullscreen">FULLSCREEN</button>
+				<button class="settingButtons" id="btnWindowed">WINDOWED</button>
+			</div>
+
+			<div id="affectionNotifiction">
+				Affection Updated! <br>Check It Out!
+			</div>
+
+			<div id="black">
+				<div id="blackWordsNotRacist">Later...</div>
+				<img src="images/black.jpg">
+			</div>
+		</div>
+
+		<!-- card Matching Game -->
+		<div id="gameScreenCardMatchGame">
+			<div id="topBar">
+				Card Matching Game
+			</div>
+
+			<div id="gameSideBox">
+				<div class="menuBox" id="correctPairs">
+					Pairs: 0
+				</div>
+
+				<div class="menuBox" id="cardMatchingGamelives">
+					Lives Left: 3
+				</div>
+
+				<div class="menuBox menuBtn" id="btnHighScores">
+					HighScores!
+				</div>
+
+				<div class="menuBox menuBtn" id="btnQuit">
+					QUIT!
+				</div>
+			</div>
+
+			<div id="gameTable">
+				<div id='gameTableHider'>
+					
+				</div>
+
+				<div id="nextButtonCardMatchGame">
+					NEXT!
+				</div>
+
+				<div id="cntHighScores">
+					<div id="highScoreTitle">
+						Highest Scores:
+					</div>
+
+					<div class="highScoreNumbersCardGuess" id="firstPlaceScore">
+						Aqua: 20
+					</div>
+
+					<div class="highScoreNumbersCardGuess" id="secondPlaceScore">
+						Makise: 10
+					</div>
+
+					<div class="highScoreNumbersCardGuess" id="thirdPlaceScore">
+						Hiyori: 5
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- sajeivs game of goodness -->
+		<div id="cntGuessingGame">
+			<div id="cntLoser">
+				
+			</div>
+
+			<div id="cntGameSajeivGame">
+				<h1 class="groupTitle">Number Guessing Game</h1>
+				<h3 id="questionStatement" class="groupSubTitle">Guess the number of dogs in the picture:</h3>
+
+				<div id="round1">
+					<input type="text" id="txtGuess" class="groupGuess"><button id="btnGuess" class="groupGuess">Guess</button>
+					<br>
+				</div>
+
+				<div id="cntHint" class=groupHint>
+						HINT: IT'S A NUMBER BETWEEN 1 and 10!
+				</div>
+
+				<div id="round2">
+					<input type="text" id="txtGuess2" class="groupGuess"><button id="btnGuess2" class="groupGuess">Guess</button>
+					<br>
+				</div>
+
+				<div id="cntHint2" class=groupHint>
+						HINT: IT'S A NUMBER BETWEEN 10 and 30!
+				</div>
+
+				<div id="round3">
+					<input type="text" id="txtGuess3" class="groupGuess"><button id="btnGuess3" class="groupGuess">Guess</button>
+					<br>
+				</div>
+
+				<div id="cntHint3" class=groupHint>
+						HINT: There is less than 50!
+				</div>
+
+				<div id="round4">
+					<input type="text" id="txtGuess4" class="groupGuess"><button id="btnGuess4" class="groupGuess">Guess</button>
+					<br>
+				</div>
+
+				<div id="cntHint4" class=groupHint>
+						HINT: IT'S A NUMBER BETWEEN 1 and 500!
+				</div>
+
+				<div id="round5">
+					<input type="text" id="txtGuess5" class="groupGuess"><button id="btnGuess5" class="groupGuess">Guess</button>
+					<br>
+				</div>
+
+				<div id="cntHint5" class=groupHint>
+						HINT: Remember to convert into cents?
+				</div>
+
+				<div id=cntLives>
+					Lives:20
+				</div>
+
+				<div id="cntGamePicture">
+					<img src="minigames/guessThatNumber/images/question1.jpg" id="question1" class="gamePicture">
+					<img src="minigames/guessThatNumber/images/question2.jpg" id="question2" class="gamePicture">
+					<img src="minigames/guessThatNumber/images/question3.jpg" id="question3" class="gamePicture">
+					<img src="minigames/guessThatNumber/images/question4.png" id="question4" class="gamePicture">
+					<img src="minigames/guessThatNumber/images/question5.jpg" id="question5" class="gamePicture">
+				</div>
+			</div>
+
+			<div id="sajeivsQuitButtonForHisGame">
+				QUIT!
+			</div>
+		</div>
+
+		<div class="endScreenPicture" id="gameScreenSuccess">
+			
+		</div>
+
+		<div class="endScreenPicture" id="gameScreenFail">
+			
+		</div>
+	</body>
+</html>
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the functions that are used for the code in the game.
+*/
+
+/*this function take the character, and speech and updates it accordingly.
+The character is put in the smalelr box and the speech is put in the bigger speech box*/
+function updateDialogue(character,speech){
+	$(".cntCharacterText2").html(character);
+	$("#speechText").html(speech);
+	textAnimation();
+	txtSFX();
+}
+/*This function turns off all the music in the allMusic array so that it mutes every single song that we added to the game*/
+function toggleMusicOff(songName)
+{
+	for(let x=0;x<allMusic.length;x++)
+	{
+		if(document.getElementById(allMusic[x]).muted==false)
+			{
+			   document.getElementById(allMusic[x]).muted=true;
+			}
+
+	}
+}
+/*This function turns on all the muted songs in the allMusic array. This function is used to unmute every song after the toggleMusicOff function is used*/
+function toggleMusicOn()
+{
+	for(let x=0;x<allMusic.length;x++)
+	{
+		if(document.getElementById(allMusic[x]).muted==true)
+			{
+			   document.getElementById(allMusic[x]).muted=false;
+			}
+	}
+}
+/*This function changes the volume of every single song in the game based on the arguement that matches the parameter. In the settings page, there
+is a low, medium, and high volume option which all have different arguements to change the volume of every song accordingly based on which button is 
+clicked. */
+function toggleMusicVolume(number)
+{
+	for(let x=0;x<allMusic.length;x++)
+	{
+		document.getElementById(allMusic[x]).volume=number;
+	}
+}
+/*This function adds an animation which makes the dialogue of every character in the game, fade in letter by letter using the setTimeout function.  */
+function textAnimation()
+{
+	let speechValue = $("#speechText").html();
+	$("#speechText").hide();
+	for (let x = 0; x < speechValue.length; x++) {
+		setTimeout(function () {
+			$("#speechText").show(speechValue.charAt(x));
+		}, 100);
+		//hide(speechText).subStr(speechText.charAt(x+1));
+	}
+}
+/*This function goes together with the textAnimation function. While the textAnimation function makes the character dialogue fade in letter by letter, the txtSFX 
+makes a cool soundeffect to go with the animation. The mp3 file for the soundeffect is timed using(setTimeout) so that it ends once the textAnimation function 
+ends as well*/
+function txtSFX()
+{	
+		document.getElementById("characterSounds").currentTime=3;
+		document.getElementById("characterSounds").play();
+		setTimeout(function () {
+			document.getElementById("characterSounds").pause();
+		}, 500);
+}
+
+/*This option below helps simplify the text selection process. The character is the character speeking,
+the option family is the option that the text is in, and optionDialogueNumber is the number the line is on.
+Scene choice is an optional parameter that gives more specific lines of dialogue*/
+function optionDialogue(character,optionFamily,optionDialogueNumber,sceneChoiceNumber){
+	if(sceneChoiceNumber==undefined){
+		updateDialogue(character,optionFamily[optionDialogueNumber]);
+	}
+
+	else{
+		updateDialogue(character,optionFamily[sceneChoiceNumber][optionDialogueNumber]);
+	}
+
+	$("#cntOptions").fadeOut(1000);
+	optionDialogueNumber++;
+	return optionDialogueNumber;
+}
+
+/*This option updates the inventory, adding items to it. The imgPath is the images path reative to this file
+ and the itemObtained is what the items name will be displayed as in the notification*/
+function obtainedItem(itemObtained,imgPath){
+	//put item in inventory
+	for(let x=0;x<25;x++){
+		let boxNum=("itemCnt"+x);
+		let boxValue=$("#"+boxNum).attr("value");
+		/*there is no ../ because it is relative to the html file and not the code file*/
+		if(boxValue=="empty"){
+			document.getElementById(boxNum).setAttribute("value","full");
+			$("#itemCnt"+x).html("<img class='item' src='"+imgPath+"'>");
+			break;
+		}
+	}
+
+	inventoryItems.push(itemObtained);
+	$(".itemObtainedText").html(itemObtained);
+	$(".itemNotifications").show().fadeOut(5000);
+}
+
+/*This function returns a characters affection number. It also updates the affection bar
+in the affection menu by either ,making the cover larger or smaller*/
+function updateAffection(character,changedBy,currentValue){
+	
+	let reverse=100;
+	let returnAffection=currentValue;
+	returnAffection+=changedBy;
+	reverse-=returnAffection;
+
+	$("#affectionNotifiction").show().fadeOut(5000);
+
+	if(character=="aqua"){
+		$("#cntAffectionAquaBarHider").css('width', reverse+"%");
+	}
+
+	else if(character=="hiyori"){
+		$("#cntAffectionHiyoriBarHider").css('width', reverse+"%");
+	}
+
+	else if(character=="makise"){
+		$("#cntAffectionMakiseBarHider").css('width', reverse+"%");
+	}
+
+	if(reverse<=0){
+		return 0;
+	}
+
+	else{
+		return returnAffection;
+	}
+}
+/*When you are at the carnival, you can choose to visit the girls based on their prefered order,their character option will disappear so that you cant visit the same one after
+talking to them. After you talk to them, it will take you back to your original place where you can choose to visit a girl.Except now you can not visit the same girl 
+twice. This function will hide the character option that you recently clicked on.*/
+function hideGirl(){
+	let arrayLength=girlNames.length;
+	if(arrayLength==3){
+		$("#option3").hide();
+		if(playerChoices=="Aqua"){
+			girlNames.splice(0,1);
+		}
+		if(playerChoices=="Makise"){
+			girlNames.splice(1,1);
+		}
+		if(playerChoices=="Hiyori"){
+			girlNames.splice(2,1);
+		}
+		$("#option1").html(girlNames[0]);
+		$("#option2").html(girlNames[1]);
+	}
+
+	else if(arrayLength==2){
+		$("#option2").hide();
+		$("#option3").hide();
+		if(playerChoices=="Aqua"){
+			girlNames.splice(0,1);
+			$("#option1").html(girlNames[0]);
+		}
+		if(playerChoices=="Makise"){
+			if(girlNames[0]=="Makise"){
+				girlNames.splice(0,1);
+				$("#option1").html(girlNames[0]);
+			}
+			else if(girlNames[1]=="Makise"){
+				girlNames.splice(1,1);
+				$("#option1").html(girlNames[0]);			
+			}
+		}
+		if(playerChoices=="Hiyori"){
+			girlNames.splice(1,1);
+			$("#option1").html(girlNames[0]);
+		}
+	}
+}
+
+/*This function is used to check if the player is sucsessful in dating a girl*/
+function checkIfYouAreNotALonerLOL(characterAffectionLevel){
+	let randoNumber=Math.round(Math.random()*100);
+
+	if(randoNumber<=characterAffectionLevel){
+		return true;
+	}
+
+	else{
+		return false;
+	}
+}
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the main page containing all the dialogue for the game.
+*/
+
+//ALL OF THESE ARE GLOBAL SINCE OTHER .js FILES MUST BE ABLE TO USE THEM
+//TOTALLY PLANNED
+
+//these are things resued many times
+let playerName="";
+let scene="1-0";
+let dialogueNumber=1;
+let dialogueLength=null;
+let optionDialoguePlaying=false;
+let allMusic=["casualMusic","titleMusic"];
+let optionValue = null;
+
+/*character speaches*/
+let aquaspeech=null;
+let hiyorispeech=null;
+let makiseSpeech=null;
+
+/*character affection levels*/
+let aquaAffection=0;
+let hiyoriAffection=0;
+let makiseAffection=0;
+
+/*inventory*/ 
+let inventoryItems=[];
+/*player choices*/
+let playerChoices=null;
+/*mini game score to calcuate affection levels*/
+let playerMiniGameScore=0;
+
+//things that are used in every screen an whatnot
+$(document).ready(function($) {
+	//set the first dating sims
+	aquaAffection=updateAffection("aqua",15,aquaAffection);
+	hiyoriAffection=updateAffection("hiyori",20,hiyoriAffection);
+	makiseAffection=updateAffection("makise",5,makiseAffection);
+
+	//option buttons
+	/*This selects the id of the btn so it is more flexable and usefull*/
+	$(".btnChoose").click(function(event) {
+		if(optionDialoguePlaying==true){
+			optionValue = $(this).prop('id');
+			$(".btnChoose").css("background-color", "lightpink");
+			$("#"+optionValue).css("background-color", "darkblue");
+		}
+	});
+
+	//generate inventory blocks
+	for(let x=0;x<25;x++){
+		$("#cntItemBox").append('<div class="itemBox" value="empty" id="itemCnt'+x+'"><div class="itemDescription"></div></div>')
+	}
+
+	//menu for affection levels
+	$("#affectionMenuPullUp").click(function(event) {
+		if($(this).prop('id')=="affectionMenuPullUp"){
+			if($("#affectionMenuPopUp").prop('value')=="open"){
+				$("#affectionMenuPopUp").prop('value', 'closed');
+				$("#affectionMenuPopUp").removeClass('openMenuPopUp');
+			}
+
+			else{
+				$("#affectionMenuPopUp").addClass('openMenuPopUp');
+				$("#affectionMenuPopUp").prop('value', 'open');
+
+				//check if the other menu is open
+				if($("#inventoryMenuPopUp").prop('value')=="open"){
+					$("#inventoryMenuPopUp").prop('value', 'closed');
+					$("#inventoryMenuPopUp").removeClass('openMenuPopUp');
+				}
+			}
+		}
+	});
+
+	//menu for inventory
+	$("#inventoryPullUp").click(function(event) {
+		if($(this).prop('id')=="inventoryPullUp"){
+			if($("#inventoryMenuPopUp").prop('value')=="open"){
+				$("#inventoryMenuPopUp").prop('value', 'closed');
+				$("#inventoryMenuPopUp").removeClass('openMenuPopUp');
+			}
+
+			else{
+				$("#inventoryMenuPopUp").addClass('openMenuPopUp');
+				$("#inventoryMenuPopUp").prop('value', 'open');
+
+				//check if the other menu is open
+				if($("#affectionMenuPopUp").prop('value')=="open"){
+					$("#affectionMenuPopUp").prop('value', 'closed');
+					$("#affectionMenuPopUp").removeClass('openMenuPopUp');
+				}
+			}
+		}
+	});
+
+	//this is the first btn that gets the player name
+	$("#btnPlayerName").click(function(event) {
+		playerName= $("#txtPlayerName").val();
+
+		if(playerName==""){
+			playerName="Onii";
+		}
+		document.getElementById("casualMusic").play();
+		document.getElementById("titleMusic").pause();
+
+		$("#startScreen").fadeOut(5000);
+		$("#gameScreen").fadeIn(5000);
+		
+	//ALL THE DIALOGUE STARTS HERE
+		/*this dialogue is in teh player name because it needs to insert the player name in to
+		various spots of the dialogue. If it was not done like this then the player name would appear
+		blank or null in the dialogue*/
+
+		/*Aqua Speech*/
+		aquaspeech = {
+			neighbourhood: [
+				"Yahallo "+playerName+"-chan!",
+				"It's not nice to keep a childhood friend waiting...",
+				"Anyways, today's the big day at school remember?!",
+				"It's the school cultural festival!",
+				"This means games, food and fun!",
+				"Hey, if you are lucky, you may even get a girl to fall head over heels for you!",
+				"Well anyways, let's get going."
+			],
+
+			school: [
+				"Well, here we are! Naoetsu Private High School!",
+				"To be honest, I'm surprised you were able to get into this school, haha!",
+				"The bell rings*",
+				"Alright, "+playerName+"-chan, I'll be getting to class!",
+				"Remember to go to the school festival tonight at 7pm!"
+			],
+
+			schoolFront: [
+				"Hey! " + playerName + "-chan!",
+				"Thank god school's over, I'm so excited for the festival!",
+				"You're still going with me right?",
+				"Anyways... do you want to walk home together?"
+			],
+			/*this just gets worse and worse doesn't it?*/
+			//mulitiple options in the same scene
+			schoolFrontOption1: [
+				[
+					"Good answer " + playerName +"-chan!",
+					"This will be just like the old times.",
+					"Back in grade school, ahh the memories.",
+					"We can have a nice long conversation!",
+					"We'll buy some food, play fun games, and have a great time!",
+				],
+				[
+					"I knew it!",
+					"I don't even know why I asked!",
+					"Aren't I so smart "+playerName+"-chan?",
+					"Let's get going!"
+				]
+			],
+			schoolFrontOption2: [
+				[
+					"You're a party pooper " + playerName + "-chan.",
+					"Well, next time I guess.",
+				],
+				[
+					"Too bad!",
+					"If you won't walk with me then I'll walk with you!",
+				]
+			],
+			schoolFrontOption3: [
+				[
+					"That was mean " + playerName + "-chan...",
+					"I know you're only joking though!",
+					"So it's fine!",
+					"No hurt feelings here!",
+				],
+				[
+					"No answer?",
+					"I'll take it as a yes then!",
+					"Let's get going!",
+					"We don't want to be late for the festival right "+playerName+"-chan!?"
+				]
+			],
+			festivalAqua: [
+				"Hey " + playerName +"-chan!",
+				"You're finally here!",
+				"This festival is going to be so much fun.",
+				"I'm so excited!",
+				"What do you want to do first?",
+				"Wow! you're pretty good at this",
+				"But not better than me!",
+				"But maybe one day you will beat my high score!",
+				"Bye now!",
+			],
+			festivalAquaOption1: [
+				"I knew it!",
+				"The games here are always the most fun!"
+			],
+			festivalAquaOption2: [
+				"Let's go play the matching game over there!",
+				"I bet you won't be able to do better then me!",
+				"The games here are always the most fun!"
+			],
+			festivalAquaOption3: [
+				"Well, too bad.",
+				"I want to play that matching game over there.",
+				"Lets go!"
+			],
+			eating: [
+				"I knew you couldn't resist eating without me around!",
+				"That's why you came to find me right?",
+				"I'm always there to make everything more fun!",
+				"Never a dull moment with me around right!?",
+				"Anyways, let's go eat anything and everything",
+				"Our stomach limit is the limit!",
+				"Let's get going!"
+			],
+
+			datingWin: [
+				"You want to date me?",
+				"I never expected this to happen...",
+				"But I'm so happy!",
+				"There is no way I could deny such a confession",
+				"Of course I will go out with you!"
+			],
+
+			datingFail: [
+				"You want to date me?",
+				"Well...",
+				"I've never really thought about going on a date with anyone...",
+				"Especially you...",
+				"I've only ever really thought of you as....",
+				"A Friend....",
+				"So I'm sorry "+playerName+"-chan",
+				"But I just can't accept your confession"
+			]
+		}
+		//makise speech
+		makiseSpeech = {
+			classroom: [
+				"Hey there " + playerName + "-kun.",
+				"We're getting our test back today, I wonder how you did! Haha!",
+				"Here I am, the smartest student in the class!",
+				"...And you? Are you even passing?",
+				"Why would you even take this course if you have no idea what your doing?",
+				"The teacher gives back your tests*",
+				"Wow. I'm so surpised, I got 100% again.",
+				"What did you get? Show me!",
+				"HAHAHAHA! What a retard! 12/100? How are you even that stupid?",
+				"It was all multiple choice, and there were 4 options.",
+				"If you guessed everything you could've gotten around 25%",
+				"You are actually so stupid.",
+				"Well anyways, since you're so stupid, do you want some study help?",
+				"Bell rings*",
+				"Ahh yes, finally time without an idiot like you."
+			],
+			classroomOption1: [
+				"All right, I guess it's only natural for the smart to help the stupid.",
+				"So first, let's take up your mistakes on your most recent tests.",
+				"All right, I guess that's the most I could help you with.",
+				"I was only helping you because you needed my help so badly.",
+				"It wasn't for any other reason."
+			],
+			classroomOption2: [
+				"Wow, I guess you can stay dumb."
+			],			
+			classroomOption3: [
+				"... Really?",
+				"Okay then...",
+				"Uh...",
+				"?"
+			],
+			festivalMakise: [
+				"Hello " + playerName +"-kun!",
+				"Shouldn't you be studying after you failed so badly?",
+				"Well, I guess today is a special day",
+				"What activities do you want to do?",
+				"Let's get started with the game."
+			],
+			festivalMakiseOption1: [
+				"Riddles?",
+				"Riddles are silly, they're too illogical.",
+				"Logic riddles are more like it!",
+				"With your brain, I'm sure you won't be able to get any. Haha!"
+			],
+			festivalMakiseOption2: [
+				"You don't know what to do?",
+				"To be honest, I'm not really surprised.",
+				"After seeing what you did on that test...",
+				"You probably never know what you're doing",
+				"Eh?",
+				"You don't think you're retarded?",
+				"Well I'll prove you wrong!",
+				"Answer at least one question correctly, and I won't call you retarded anymore."
+			],
+			festivalMakiseOption3: [
+				"You're hungry?",
+				"I guess we can eat now...",
+				"How about a little game?",
+				"A knowledge game!",
+				"I'll be fun, don't worry... Hehe.",
+				"If you can get just ONE question right, I'll buy you food",
+				"I'm pretty confident you won't be able to get one right though.",
+				"Especially after seeing that test mark of yours",
+				"I still can't believe anyone could be that dumb.",
+			],
+			festivalMakiseFood: [
+				"?",
+				"You've come to see me again?",
+				"That's pretty smart of you",
+				"Your stomach growls*",
+				"If you're hungry then you can have some of this.",
+				"...",
+				"There's fireworks at 9 tonight.",
+				"Maybe you can learn a thing or two on how fireworks actually work!",
+				"Do you want to watch fireworks with me?"
+			],
+
+			eating: [
+				"Smart choice to come find me to eat.",
+				"That way you might get a bit smarter!",
+				"We should do this more often...",
+				"Not because I like it or anything...",
+				"Just maybe because you will get a bit smarter...",
+				"...",
+				"Let's get going now, don't want to waste time do we?"
+			],
+			datingWin: [
+				"You want to go on a date with me?",
+				"Really? Even after I made fun of you that much?",
+				"Wow...",
+				"Ok...",
+				"I will go on a date with you!",
+				"The past is the past!",
+				"I'll try to make fun of you less, but no promises!",
+				"I love you " + playerName +"-kun!"
+			],
+			datingFail:[
+				"B-B-B-B-B-Baka!",
+				"Why would I ever date you???",
+				"You're kinda stupid...",
+				"I'm not into dumb guys",
+				"Sorry!"
+			]
+		}
+
+		/*Hiyori speech*/
+		hiyorispeech = {
+			hallway: [
+				playerName + "-senpai" + " is that you?",
+				"It's a pleasure to see you again!",
+				"I've been hoping to have some time to talk with you!",
+				"Speaking of which, what are you up to tonight?",
+				"I have to get to class now, don't want to ruin my perfect attendance do I!",
+				"See you around " + playerName +"-senpai!"
+				// 3 words for whatever u asnwer
+			],
+
+			hallwayOption1: [
+				"Oh! I would love to! Thank you so much for inviting me " +playerName +"-senpai!",
+				"This is gonna be so fun!",
+				"Just don't forget ok!?"
+			],
+
+			hallwayOption2: [
+				"That's a relaxing thing to do! You should watch Goblin Slayer, I find it quite interesting!",
+				"Here! You can borrow my copy.",
+				"Just return it whenever!",
+				"I'm done watching it so take your time!"
+			],
+
+			hallwayOption3: [
+				"Oh... Sorry... I didn't mean to invade your privacy."
+			],
+			festivalHiyori: [
+				"Ah! " + playerName +"-senpai!",
+				"I'm so happy to see you here!",
+				"Happy lunar festival!",
+				"There's so much good food here!",
+				"Oh! There's also so much fun games!",
+				"I'm so excited to be here with you!",
+				"There's so much things to do...",
+				"What should we start with " + playerName + "-senpai?",
+				"Hey! Nice going!",
+				"That is a realy good score!",
+				"Well I gotta go now!",
+				"See you later!"
+			],
+			festivalHiyoriOption1: [
+				"Eh?",
+				"You're right! That does look fun!",
+				"As expected of " + playerName +"-senpai!",
+				"Let's go play!"
+			],
+			festivalHiyoriOption2: [
+				"What I want to do?",
+				"There's so much options...",
+				"I can't choose!",
+				"Hey! That game over there looks pretty fun!",
+				"I guess we can start with that " + playerName +"-senpai.",
+			],
+			festivalHiyoriOption3: [
+				"...Ok",
+				"Eh?",
+				"Hey, that game over there looks pretty fun!",
+				"Let's go play!",
+			],
+
+			eating: [
+				"I'm so glad that you found me to share a meal with!",
+				"I was having so much fun last time that I almost forgot about the food!",
+				"Anyways, let's try a bit of everything ok?!",
+				"Let's go!"
+			],
+			
+			datingWin: [
+				"??????????????",
+				"You want to go on a date with me?",
+				"...? " + playerName +"-senpai wants to go on a date with me?",
+				"I can't believe this!",
+				"I've dreamed of this for so long!",
+				"I've never expected this to happen.",
+				"I will go on a date with you " + playerName +"-senpai!",
+			],
+			datingFail:[
+				"Uh...",
+				"I'm not trying to get into a relationship right now...",
+				"I'm sorry " + playerName +"-senpai!",
+				"Please forgive me!",
+			]
+		},
+
+		/*the players speech*/
+		playerSpeech = {
+			room: [
+				"Sigh...", 
+				"Today was a tiring day.",
+				"At least I'm going to the school fair...",
+				"I should probably take something with me...",
+				"What should I take?",
+				"Well, I better get going then.",
+				"I don't want to be late." 
+			],
+
+			roomOption1: [
+				"Yea... a water bottle.",
+				"Better stay hydrated!"
+			],
+
+			roomOption2: [
+				"Ok. Dr.Pepper.",
+				"Tasty and refreshing!"
+			],
+
+			roomOption3: [
+				"I mean...",
+				"This will probably come in handy somehow..."
+			],
+			festival: [
+				"Sugoi! The festival looks amazing!",
+				"All of this food looks so good!",
+				"I don't want to eat alone...",
+				"Who should I go find?"
+			],
+
+			festivalOption1: [
+				"I better go find that idiot."
+			],
+
+			festivalOption2: [
+				"Well, hopefully she won't make fun of me too much..."
+			],
+
+			festivalOption3: [
+				"Hiyori... What a cutie."
+			],
+			festivalBack: [
+				"That was fun!",
+				"But I wonder what else there is to do?",
+				"I should go with someone else though...",
+				"Who should I find now?"
+			],
+
+			festivalFood: [
+				"Well, I guess that's the end of seeing the three girls",
+				"It was fun while it lasted.",
+				"Sigh...",
+				"My goal at the start of this was to eat with someone...",
+				"But I still haven't eaten...",
+				"I'm so hungry.",
+				"I can only choose one person to eat with.",
+				"Who should I go find?"
+			],
+			festivalFoodOption1: [
+				"I must have hit my head hard on something if I want to eat with Aqua...",
+				"But hey I guess it could be fun...",
+				"Why not..."
+			],
+
+			festivalFoodOption2: [
+				"A smart choice... hehe...",
+				"Maybe she could help get my test scores up..."
+			],
+
+			festivalFoodOption3: [
+				"Nothing can go wrong if I choose to eat with Hiyori...",
+				"Yea... it would be fun to end the day off calm I guess"
+			],
+			endGame: [
+				"Ahh...",
+				"I guess its all over now.",
+				"All those girls were quite lovely!",
+				"But I have to make a decision.",
+				"I can only ask to date one girl.",
+				"And my success rate is based on their level of affection for me.",
+				"The more they like me, the greater my chances are.",
+				"That should be simple logic.",
+				"This is going to be a tough decision but...",
+				"Who should I date?",
+				"I better go find her..."
+			],
+
+			endGameOption1: [
+				"Known her since childhood eh?",
+				"And it's only now that I've noticed her...",
+				"Well, I guess I'll ask her out then..."
+			],
+			endGameOption2: [
+				"Am I a masochist?",
+				"What am I even thinking?",
+				"I guess I have to accept my feelings.",
+				"I love Makise."
+			],
+
+			endGameOption3: [
+				"Hiyori is the cutest girl I have ever seen.",
+				"She is the most kawaii thing I have ever laid my eyes upon!",
+				"I'm determined!",
+				"I will ask Hiyori on a date!"
+			]
+		},
+		girlNames = [
+			"Aqua",
+			"Makise",
+			"Hiyori"
+		]	
+
+		//this makes the first text from aqua apear without a click
+		dialogueLength=aquaspeech.neighbourhood.length;
+		updateDialogue("Aqua",aquaspeech.neighbourhood[0]);
+	});		
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description: The general code for the game
+*/
+
+$(document).ready(function($) {
+	/*Hide all not in use pages after loading them*/
+	$(".endScreenPicture").hide();
+	$("#cntGuessingGame").hide();
+	$("#gameScreenCardMatchGame").hide();
+	$("#affectionNotifiction").hide();
+	$("#gameScreen").hide();
+	$("#cntHiyori").hide();
+	$("#cntMakise").hide();
+	$("#cntSettings").hide();
+	$("#settingsIconOn").hide();
+	$("#cntOptions").hide();
+	$("#characterSounds").hide();
+	$(".itemNotifications").hide();
+	$("#black").hide();
+	$("#titleMusic").hide();
+	$("#unmuteAll").hide();
+	$("#SFXOff").hide();
+	/*This button is used to mute every song in the game.
+	This is a shortcut button (displayed beside the settings button), for the toggle music buttons in the settings page.*/
+	$("#muteAll").click(function(event){
+		toggleMusicOff("casualMusic");
+		$("#muteAll").hide();
+		$("#unmuteAll").show();
+	});
+	/*This button is used to unmute every song in the game.
+	This is a shortcut button (displayed beside the settings button), for the toggle music buttons in the settings page.*/
+	$("#unmuteAll").click(function(event){
+		toggleMusicOn("casualMusic");
+		$("#unmuteAll").hide();
+		$("#muteAll").show();
+	});
+	/*This button is used to unmute every song in the game.
+	This can be accessed in the settings page*/
+	$("#btnMusicOn").click(function(event){
+
+		toggleMusicOn("casualMusic");
+		$("#unmuteAll").hide();
+		$("#muteAll").show();
+
+	});
+	/*This button is used to mute every song in the game.
+	This can be accessed in the settings page*/
+	$("#btnMusicOff").click(function(event){
+
+		toggleMusicOff("casualMusic");
+		$("#muteAll").hide();
+		$("#unmuteAll").show();
+
+	});
+	/*This button is used to access the settings screen for the game.
+	When clicked, this button will hide and reveal the settingIconOn button which indicates that the page is opened.*/
+	$("#settingsIcon").click(function(event){
+
+		$("#settingsIcon").hide();
+		$("#settingsIconOn").show();
+		$("#cntSettings").fadeIn();
+
+	});
+	/*This button is used to show that the settings page is opened and is revealed when the settingsIcon is clicked.
+	If this button is clicked, it will close the settings page.*/
+	$("#settingsIconOn").click(function(event){
+
+		$("#settingsIconOn").hide();
+		$("#settingsIcon").show();
+		$("#cntSettings").fadeOut();
+
+	});
+	/*This button is used to set the game music volume to low because the arguement for the toggleMusicVolume function sets the music to low volume.*/
+	$("#btnLow").click(function(event){
+
+		toggleMusicVolume(0.2);
+
+	});
+	/*This button is used to set the game music volume to medium because the arguement for the toggleMusicVolume function sets the music to medium volume.*/
+	$("#btnMedium").click(function(event){
+
+		toggleMusicVolume(0.7);
+
+	});
+	/*This button is used to set the game music volume to high because the arguement for the toggleMusicVolume function sets the music to high volume.*/
+	$("#btnHigh").click(function(event){
+
+		toggleMusicVolume(1);
+
+	});
+	/*When clicked, this button makes the game screen/page go into fullscreen in Google Chrome.*/
+	$("#btnFullscreen").click(function(event){
+		var elem = document.getElementById("gameScreen");
+		elem.webkitRequestFullscreen(); 
+	});
+	/*When clicked, this button makes the game screen/page return to windowed if in fullscreen.*/
+	$("#btnWindowed").click(function(event){
+		document.webkitExitFullscreen(); 
+	});
+	/*When clicked, this button reloads the page therefore restarting the game for the player*/
+	$("#btnReset").click(function(event){
+
+		location.reload(true);
+
+	});
+	/*This button makes it so that the soundeffect that players during textAnimation is muted.*/
+	$("#btnSFXOff").click(function(event){
+
+		$("#SFXOff").html("<audio id='characterSounds' controls muted src='../audio/textSounds.mp3'></audio>");
+
+	});
+	/*This button makes it so that the soundeffect that players during textAnimation is unmuted.*/
+	$("#btnSFXOn").click(function(event){
+
+		$("#SFXOff").html("<audio id='characterSounds' controls src='../audio/textSounds.mp3'></audio>");
+
+	});
+
+	/*This is the first next btn. So simple and organized*/
+	$("#btnNext").click(function(event) {
+		if(scene=="1-0"){
+			updateDialogue("Aqua",aquaspeech.neighbourhood[dialogueNumber]);
+			dialogueNumber++;
+
+			if(dialogueNumber==(dialogueLength+1)){
+				scene="1-1";
+				$("#gameScreen").fadeOut().fadeIn();
+				$("#gameScreen").css("background-image", "url(images/backgroundSchool.jpg)");
+				dialogueNumber=0;
+			}
+		}
+	});
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the css for the game.
+*/
+body{
+	overflow: hidden; 
+	margin: 0;
+	color: #fff399;
+	font-family: 'Allerta Stencil', sans-serif;
+}
+
+::-webkit-scrollbar{
+	border-radius: 10px;
+	width: 15px;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 0px 30px 30px 0px;
+	background-color: lightblue;
+}
+ 
+::-webkit-scrollbar-thumb {
+	background: darkblue; 
+	border-radius: 0px 10px 10px 0px;
+}
+
+.cntCharacterText{
+	position: absolute;
+	border-style: solid;
+	color: darkblue;
+	min-height: 100px;
+	font-size: 40px;
+	padding: 10px;
+	width: 80%;
+	border-radius: 10px;
+	left: 10%;
+	bottom: 40px;
+	background-color: lightpink;
+}
+
+#speechText{
+	top: 10px;
+	position: absolute;
+	max-height: 100%;
+}
+
+.cntCharacterText2{
+	position: absolute;
+	text-align: center;
+	border-style: solid;
+	color: darkblue;
+	height: 40px;
+	font-size: 35px;
+	width: 10%;
+	border-radius: 10px;
+	left: 10%;
+	bottom: 170px;
+	background-color: lightpink;
+}
+
+.allGamePhases{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+}
+
+.btnCustom{
+	position: absolute;
+	border-style: solid;
+	border-radius: 20px;
+	text-align: center;
+	font-size: 30px;
+	transition: 1s ease;
+	padding: 10px 30px 10px 30px;
+	background-color: grey;
+}
+
+.btnChoose{
+	position: absolute;
+	border-style: solid;
+	border-radius: 20px;
+	text-align: center;
+	font-size: 30px;
+	transition: 1s ease;
+	padding: 10px 30px 10px 30px;
+	background-color: lightpink;
+	opacity: 0.9;
+}
+
+.btnChoose:hover{
+	background-color: darkblue; 
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.btnCustom:hover{
+	background-color: darkblue; 
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+/*Character proportions n stuff start*/
+.cntCharacter{
+	position: absolute;
+	bottom: 0;
+}
+
+.imgCharacter{
+	max-height: 100%;
+	height: 100%;
+}
+
+.Aqua{
+	height: 80%;
+	bottom: 0;
+}
+
+.Makise{
+	height: 70%;
+	bottom: 0%;
+}
+
+.Hiyori{
+	top: 30%;
+	height: 100%; 
+}
+/*character proportions end*/
+
+/*StartPage Styles Start Here*/
+#startScreenTitle{
+	position: absolute;
+	font-size: 600%;
+	text-shadow:
+	-2px -2px 0 #5d5ec1,
+	2px -2px 0 #5d5ec1,
+	-2px 2px 0 #5d5ec1,
+	2px 2px 0 #5d5ec1;
+	width: 100%;
+	text-align: center;
+}
+
+#txtPlayerName{
+	font-size: 20px;
+	height: 25px;
+	width: 300px;
+	position: absolute;
+	top: 25%;
+	left: 40%;
+}
+/*StartPage Styles End Here*/
+/*GamePage Styles Start Here*/
+#mainTextbox
+{
+	position: absolute;
+	width: 80%;
+	height: 10%;
+	border-style:solid;
+
+}
+.musicToggles
+{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	right: 1%;
+	top:10px;
+	border-style: solid;
+	background-color: pink;
+	color: darkblue;
+
+}
+.musicToggles:hover
+{
+	background-color: lightblue;
+	cursor: pointer;
+	transform: scale(1.1);
+	color: pink;
+}
+#muteAll
+{
+	background-image: url("../images/unmuted.png");
+	background-size: 100%;
+}
+#unmuteAll
+{
+	background-image: url("../images/muted.png");
+	background-size: 100%;
+}
+#settingsIcon
+{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	right: 6%;
+	top:10px;
+	border-style: solid;
+	background-color: pink;
+	background-image: url("../images/settingsIcon.png"); 
+	background-size: 100%;
+	color: darkblue;
+}
+#settingsIconOn
+{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	right: 6%;
+	top:10px;
+	border-style: solid;
+	background-color:lightblue;
+	background-image: url("../images/settingsIcon.png"); 
+	background-size: 100%;
+	color: pink;
+}
+#settingsIcon:hover
+{
+	background-color: lightblue;
+	cursor: pointer;
+	transform: scale(1.1);
+	color:pink;
+}
+
+#chooseText{
+	position: absolute;
+}
+
+#cntOptions{
+	position: absolute;
+	width: 500px;
+	top: 40%;
+	left: 30%;
+}
+
+#option1{
+	position: absolute;
+	top: 0%;
+}
+
+#option2{
+	position: absolute;
+	top: 100px;
+}
+
+#option3{
+	position: absolute;
+	top: 200px;
+}
+
+.btnOptions{
+	width: 100%;
+}
+
+.itemNotifications{
+	position: absolute;
+	text-align: center;
+	color: darkblue;
+	font-size: 20px;
+	background-color: lightpink;
+	padding-top: 10px;
+	top: 400px;
+	width: 300px;
+	height: 50px;
+	right: 10px;
+	border-radius: 20px;
+	border-style: solid;
+	transition: 3s ease;
+}
+
+/*custom menus in game*/
+#cntMenus{
+	border-color: darkblue;
+	position: absolute;
+	top: 10%;
+	left: 2%;
+	min-width: 100px;
+	padding: 20px;
+	height: 210px;
+	border-style: solid;
+	border-radius: 20px;
+	background-color: lightpink;
+}
+
+.btnMenu{
+	position: absolute;
+	width: 35px;
+	height: 60px;
+}
+
+.imgMenu{
+	position: absolute;
+	left: 15px;
+	height: 60px;
+}
+
+.menuPopUp{
+	color: darkblue;
+	position: absolute;
+	border-style: solid;
+	border-radius: 20px;
+	width: 83%;
+	height: 96%;
+	top: 2%;
+	margin-left: -100%;
+	transition: 3s ease;
+	background-color: lightpink;
+}
+
+.openMenuPopUp{
+	margin-left: 15%;
+}
+
+#cntItemBox{
+	position: absolute;
+	border-radius: 20px;
+	left: 5%;
+	top: 15%;
+	width: 90%;
+	height: 75%;
+	border-style: solid;
+	background-color: white;
+	overflow-y: scroll;
+}
+
+.itemBox{
+	position: relative;
+	display: inline-block;
+	margin-top: 10px;
+	margin-left: 20px;
+	height: 200px;
+	width: 200px;
+	border-style: solid;
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.item{
+	display: block;
+	margin: 0 auto;
+	height: 100%;
+}
+
+.itemDescription{
+	top: 0;
+	left: 0;
+	background-color: lightgrey;
+	width: 100%;
+	height: 100%;
+}
+/*start of affection bars*/
+.cntAffectionBars{
+	position: absolute;
+	margin-left: 5%;
+	height: 20%;
+	width: 90%;
+	border-style: solid;
+	border-radius: 20px;
+	background-color: #f2dcf7;
+	overflow: hidden;
+}
+
+.cntAffectionCharacterImg{
+	top: -3px;
+	left: -3px;
+	height: 100%;
+	width: 15%;
+	border-style: solid;
+	position: absolute;
+}
+
+.cntAffectionCharacterBar{
+	position: absolute;
+	width: 100%;
+}
+
+.cntRunningOutOfStupidlyLongNamesToNameClasses{
+	position: absolute;
+	left: 15%;
+	width: 85%;
+	height: 100%;
+}
+
+.cntAffectionCharacterBarHider{
+	height: 100%;
+	background-color: white;
+	position: absolute;
+	right: 0;
+}
+
+/*affection notifictiona*/
+#affectionNotifiction{
+	color: darkblue;
+	position: absolute;
+	text-align: center;
+	top: 10px;
+	right: 35%;
+	height: 60px;
+	font-size: 30px;
+	padding-bottom: 10px;
+	width: 30%;
+	border-style: solid;
+	border-radius: 20px;
+	background-color: lightpink;
+}
+/*end of affection bar things*/
+.menuTitles{
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	font-size: 60px;
+	top: 20px;
+}
+
+#cntSettings
+{
+	position: absolute;
+	left: 15%;
+	top:15%;
+	height: 75%;
+	width: 75%;
+	border-style: solid;
+	border-radius: 20px;
+	background-color: lightblue;
+	font-size: 36px;
+	color: darkblue;
+	text-align: left;
+	opacity: 0.9
+}
+.settingButtons
+{
+	border-style: solid;
+	border-radius: 20px;
+	text-align: center;
+	font-size: 30px;
+	transition: 1s ease;
+	padding: 10px 30px 10px 30px;
+	background-color: grey;
+}
+.settingButtons:hover
+{
+	background-color: darkblue; 
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+#black{
+	text-align: center;
+	font-size: 100px;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#btnReset
+{
+	position: absolute;
+	top: 85%;
+	right: 2%;
+}
+
+#blackWordsNotRacist{
+	position: absolute;
+	top: 40%;
+	left: 30%;
+	width: 40%;
+	height: 10%;
+	font-size: 10vh;
+}
+
+.endScreenPicture{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.actuallEndScreenPicture{
+	width: 100%;
+	position: absolute;
+}
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the first scene to the game 1-1.
+*/
+
+$(document).ready(function($) {
+	/*this is the basic code of our project. The 'scene=="1-1"' is the lock on what scene is to be played*/
+	/*From future documenter... This is hell to do....*/
+	/*If anyone is reading this it has been 20 hours of work and it gets really messed up*/
+	/*DO NOT MAKE A DIALOGUE GAME YOU HAVE BEEN WARNED*/
+	$("#btnNext").click(function(event) {
+		if(scene=="1-1"){
+			/*Here the dialogue length is set so that each scene is only as long as the dialogue length for that scene*/
+			dialogueLength=aquaspeech.school.length;
+			/*Here the dialogue is updated and increased*/
+			updateDialogue("Aqua",aquaspeech.school[dialogueNumber]);
+			dialogueNumber++;
+
+			//this code checks if the scenes dialogue is done...
+			//the plus one is there because it makes it work... dunno why
+			//if the scene is done, it switches the lock onto the next scene
+			if(dialogueNumber==dialogueLength+1){
+				scene="1-2";
+				$("#gameScreen").fadeOut().fadeIn();
+				$("#gameScreen").css("background-image", "url(images/backgroundHallway.jpg)");
+				dialogueNumber=0;
+				$("#cntAqua").hide();
+				$("#cntHiyori").show();
+			}
+		}
+	});	
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the first scene to the game 1-2.
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+
+	$("#btnNext").click(function(event) {
+		if(scene=="1-2"){
+			if(optionDialoguePlaying==false){
+				dialogueLength=hiyorispeech.hallway.length;
+				updateDialogue("Hiyori",hiyorispeech.hallway[dialogueNumber]);
+				dialogueNumber++;
+
+				//this is where the first player choice is shown,any simmilar blocks do the same
+				if(dialogueNumber==4){
+					optionDialoguePlaying=true;
+					$("#cntOptions").fadeIn();
+					$("#option1").html("I'm going to the festival, wanna come?");
+					$("#option2").html("Nothing much, just gonna watch anime at home");
+					$("#option3").html("Why do you care?");
+				}
+			}
+
+			/*Here the code checks wich option is selected and plays dialogue accordingly*/
+			else if(optionValue=="option1"){
+				optionDialogueNumber=optionDialogue("Hiyori",hiyorispeech.hallwayOption1,optionDialogueNumber);
+
+				if(optionDialogueNumber>hiyorispeech.hallwayOption1.length-1){
+					optionDialoguePlaying=false;
+					optionValue=null;
+					hiyoriAffection=updateAffection("hiyori",20,hiyoriAffection);
+				}
+			}
+
+			else if(optionValue=="option2"){
+				optionDialogueNumber=optionDialogue("Hiyori",hiyorispeech.hallwayOption2,optionDialogueNumber);	
+				
+				if(optionDialogueNumber>hiyorispeech.hallwayOption2.length-1){
+					optionDialoguePlaying=false;
+					optionValue=null;
+					obtainedItem("Goblin Slayer DVD","items/goblinSlayer.png");
+				}
+			}
+
+			else if(optionValue=="option3"){
+				optionDialogueNumber=optionDialogue("Hiyori",hiyorispeech.hallwayOption3,optionDialogueNumber);	
+			
+				if(optionDialogueNumber>hiyorispeech.hallwayOption3.length-1){
+					hiyoriAffection=updateAffection("hiyori",-10,hiyoriAffection);
+					optionDialoguePlaying=false;
+					optionValue=null;
+				}
+			}
+			
+			if(dialogueNumber==dialogueLength+1){
+				scene="1-3";
+				$(".btnChoose").css("background-color", "lightpink");
+				$("#gameScreen").fadeOut(1000).fadeIn(1000);
+				$("#gameScreen").css("background-image", "url(images/backgroundClassroom.jpg)");
+				dialogueNumber=0;
+				$("#cntHiyori").hide();
+				$("#cntMakise").show();
+			}
+		}
+	});
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the first scene to the game 1-3.
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+
+	$("#btnNext").click(function(event) {
+		if(scene=="1-3"){
+			if(optionDialoguePlaying==false){
+				dialogueLength=makiseSpeech.classroom.length;
+				updateDialogue("Makise",makiseSpeech.classroom[dialogueNumber]);
+				dialogueNumber++;
+
+				if(dialogueNumber==6){
+					obtainedItem("12/100 Test","items/testPaper.png");
+				}
+
+
+
+				if(dialogueNumber==13){
+					optionDialoguePlaying=true;
+					$("#cntOptions").fadeIn();
+					$("#option1").html("Sure...");
+					$("#option2").html("I'm good");
+					$("#option3").html("No. Stupid idiot");
+				}
+			}
+
+			else if(optionValue=="option1"){
+				optionDialogueNumber=optionDialogue("Makise",makiseSpeech.classroomOption1,optionDialogueNumber);
+
+				if(optionDialogueNumber==2){
+					$("#black").fadeIn(2000).fadeOut(2000);
+					makiseAffection=updateAffection("makise",10,makiseAffection);
+				}
+
+				if(optionDialogueNumber>makiseSpeech.classroomOption1.length-1){
+					optionDialoguePlaying=false;
+					optionValue=null;
+				}
+			}
+
+			else if(optionValue=="option2"){
+				optionDialogueNumber=optionDialogue("Makise",makiseSpeech.classroomOption2,optionDialogueNumber);
+				
+				if(optionDialogueNumber>makiseSpeech.classroomOption2.length-1){
+					makiseAffection=updateAffection("makise",-10,makiseAffection);
+					optionDialoguePlaying=false;
+					optionValue=null;
+				}
+			}
+
+			else if(optionValue=="option3"){
+				optionDialogueNumber=optionDialogue("Makise",makiseSpeech.classroomOption3,optionDialogueNumber);
+			
+				if(optionDialogueNumber>makiseSpeech.classroomOption3.length-1){
+					makiseAffection=updateAffection("makise",15,makiseAffection);
+					optionDialoguePlaying=false;
+					optionValue=null;
+				}
+			}
+			if(dialogueNumber==dialogueLength+1){
+				scene="1-4";
+				$(".btnChoose").css("background-color", "lightpink");
+				$("#gameScreen").fadeOut().fadeIn();
+				$("#gameScreen").css("background-image", "url(images/schoolFront.png)");
+				dialogueNumber=0;
+				$("#cntMakise").hide();
+				$("#cntAqua").show();
+			}
+		}
+	});
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the first scene to the game 1-4.
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+
+	$("#btnNext").click(function(event) {
+		if(scene=="1-4"){
+			$(".btnChoose").css("background-color", "lightpink");
+			if(optionDialoguePlaying==false){
+				dialogueLength=aquaspeech.schoolFront.length;
+				updateDialogue("Aqua",aquaspeech.schoolFront[dialogueNumber]);
+				dialogueNumber++;
+
+				if(dialogueNumber==3){
+					optionDialoguePlaying=true;
+					$("#cntOptions").fadeIn();
+					$("#option1").html("Of course!");
+					$("#option2").html("Not today");
+					$("#option3").html("No. Why would I go with you?");
+				}
+
+				//here a second choice is presented to the player in the same scene
+				else if(dialogueNumber==4){
+					optionDialogueNumber=0;
+					optionDialoguePlaying=true;
+					$("#cntOptions").fadeIn();
+					$("#option1").html("Sure");
+					$("#option2").html("Not today");
+					$("#option3").html("...");
+				}
+			}
+
+			/*first choice*/
+			if(dialogueNumber==3){
+				if(optionValue=="option1"){
+					optionDialogueNumber=optionDialogue("Aqua",aquaspeech.schoolFrontOption1,optionDialogueNumber,0);
+
+					if(optionDialogueNumber>aquaspeech.schoolFrontOption1[0].length-1){
+						aquaAffection=updateAffection("aqua",25,aquaAffection);
+
+						optionDialoguePlaying=false;
+						optionValue=null;
+					}
+				}
+
+				else if(optionValue=="option2"){
+					optionDialogueNumber=optionDialogue("Aqua",aquaspeech.schoolFrontOption2,optionDialogueNumber,0);
+
+					if(optionDialogueNumber>aquaspeech.schoolFrontOption2[0].length-1){
+						optionDialoguePlaying=false;
+						optionValue=null;
+					}
+				}
+
+				else if(optionValue=="option3"){
+					optionDialogueNumber=optionDialogue("Aqua",aquaspeech.schoolFrontOption3,optionDialogueNumber,0);
+
+					if(optionDialogueNumber>aquaspeech.schoolFrontOption3[0].length-1){
+						optionDialoguePlaying=false;
+						optionValue=null;
+						aquaAffection=updateAffection("aqua",-15,aquaAffection);
+					}
+				}
+			}
+
+			/*2nd choice*/
+			//this is the second option's choices
+			else if(dialogueNumber==4){				
+				if(optionValue=="option1"){
+					optionDialogueNumber=optionDialogue("Aqua",aquaspeech.schoolFrontOption1,optionDialogueNumber,1);
+
+					if(optionDialogueNumber>aquaspeech.schoolFrontOption1[1].length-1){
+						optionDialoguePlaying=false;
+						optionValue=null;
+						aquaAffection=updateAffection("aqua",5,aquaAffection);
+					}
+				}
+
+				else if(optionValue=="option2"){
+					optionDialogueNumber=optionDialogue("Aqua",aquaspeech.schoolFrontOption2,optionDialogueNumber,1);
+
+					if(optionDialogueNumber>aquaspeech.schoolFrontOption2[1].length-1){
+						optionDialoguePlaying=false;
+						optionValue=null;
+					}
+				}
+
+				else if(optionValue=="option3"){
+					optionDialogueNumber=optionDialogue("Aqua",aquaspeech.schoolFrontOption3,optionDialogueNumber,1);
+
+					if(optionDialogueNumber>aquaspeech.schoolFrontOption3[1].length-1){
+						optionDialoguePlaying=false;
+						optionValue=null;
+					}
+				}
+			}
+
+			if(dialogueNumber==dialogueLength+1){
+				scene="1-5";
+				$(".btnChoose").css("background-color", "lightpink");
+				$("#gameScreen").css("background-image", "url(images/backgroundRoom.jpg)");
+				dialogueNumber=0;
+				$("#cntAqua").hide();
+				$("#gameScreen").fadeOut(1000).delay(100).fadeIn(1000);
+			}
+		}
+	});
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the first scene to the game 1-5.
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+
+	$("#btnNext").click(function(event) {
+		if(scene=="1-5"){
+			console.log(dialogueNumber);
+			if(optionDialoguePlaying==false){
+				dialogueLength=playerSpeech.room.length;
+				updateDialogue(playerName,playerSpeech.room[dialogueNumber]);
+				dialogueNumber++;
+
+				if(dialogueNumber==5){
+					optionDialoguePlaying=true;
+					$("#cntOptions").fadeIn();
+					$("#option1").html("Water Bottle");
+					$("#option2").html("Dr. Pepper");
+					$("#option3").html("Sakura Flower");
+				}
+			}
+
+			/*first choice*/
+			if(dialogueNumber==5){
+				if(optionValue=="option1"){
+					optionDialogueNumber=optionDialogue(playerName,playerSpeech.roomOption1,optionDialogueNumber);
+
+					if(optionDialogueNumber>playerSpeech.roomOption1.length-1){
+						optionDialoguePlaying=false;
+						optionValue=null;
+						obtainedItem("Water Bottle","items/waterBottle.png");
+					}
+				}
+
+				else if(optionValue=="option2"){
+					optionDialogueNumber=optionDialogue(playerName,playerSpeech.roomOption2,optionDialogueNumber);
+
+					if(optionDialogueNumber>playerSpeech.roomOption2.length-1){
+						optionDialoguePlaying=false;
+						optionValue=null;
+						obtainedItem("Dr.Pepper","items/drPepper.png");
+					}
+				}
+
+				else if(optionValue=="option3"){
+					optionDialogueNumber=optionDialogue(playerName,playerSpeech.roomOption3,optionDialogueNumber);
+
+					if(optionDialogueNumber>playerSpeech.roomOption3.length-1){
+						optionDialoguePlaying=false;
+						optionValue=null;
+						obtainedItem("Sakura Flower","items/sakura.png");
+
+					}
+				}
+			}
+
+			if(dialogueNumber==dialogueLength+1){
+				scene="2-1";
+				//reshow hidden option boxes
+				$("#option3").show();
+				$(".btnChoose").css("background-color", "lightpink");
+				$("#gameScreen").fadeOut(1000).fadeIn(1000);
+				$("#gameScreen").css("background-image", "url(images/backgroundFestival.jpg)");
+				dialogueNumber=0;
+			}
+		}
+	});
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the first scene to the game 2-1.
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+
+	$("#btnNext").click(function(event) {
+		if(scene=="2-1"){
+			if(optionDialoguePlaying==false){
+				dialogueLength=playerSpeech.festival.length;
+				if(girlNames.length==3){
+					updateDialogue(playerName,playerSpeech.festival[dialogueNumber]);
+				}
+				else{
+					updateDialogue(playerName,playerSpeech.festivalBack[dialogueNumber]);
+				}
+				dialogueNumber++;
+
+				if(dialogueNumber==4){
+					if(girlNames.length==3){
+						optionDialoguePlaying=true;
+						$("#cntOptions").fadeIn();
+						$("#option1").html("Aqua");
+						$("#option2").html("Makise");
+						$("#option3").html("Hiyori");						
+					}
+					else{
+						optionDialoguePlaying=true;
+						$("#cntOptions").fadeIn();
+					}
+				}
+			}
+
+			if(girlNames.length==3){
+				/*first choice*/
+				if(dialogueNumber==4){
+					if(optionValue=="option1"){
+						optionDialogueNumber=optionDialogue(playerName,playerSpeech.festivalOption1,0);
+
+						if(optionDialogueNumber>playerSpeech.festivalOption1.length-1){
+							optionDialoguePlaying=false;
+							optionValue=null;
+							playerChoices="Aqua";	
+						}
+					}
+
+					else if(optionValue=="option2"){
+						optionDialogueNumber=optionDialogue(playerName,playerSpeech.festivalOption2,0);
+
+						if(optionDialogueNumber>playerSpeech.festivalOption2.length-1){
+							optionDialoguePlaying=false;
+							optionValue=null;
+							playerChoices="Makise";
+						}
+					}
+
+					else if(optionValue=="option3"){
+						optionDialogueNumber=optionDialogue(playerName,playerSpeech.festivalOption3,0);
+						if(optionDialogueNumber>playerSpeech.festivalOption3.length-1){
+							optionDialoguePlaying=false;
+							optionValue=null;
+							playerChoices="Hiyori";
+						}
+					}
+				}
+			}
+
+			if(dialogueNumber==4){
+				if(girlNames.length==2){
+					/*second choice*/
+					if(dialogueNumber==4){
+						let optionText1=$("#option1").html();
+						let optionText2=$("#option2").html();
+
+						if(optionText1=="Aqua"){
+							if(optionValue=="option1"){
+								optionDialogueNumber=optionDialogue(playerName,playerSpeech.festivalOption1,0);
+
+								if(optionDialogueNumber>playerSpeech.festivalOption1.length-1){
+									optionDialoguePlaying=false;
+									optionValue=null;
+									playerChoices="Aqua";
+								}
+							}						
+						}
+
+
+						else if(optionText1=="Makise"){
+							if(optionValue=="option1"){
+								optionDialogueNumber=optionDialogue(playerName,playerSpeech.festivalOption2,0);
+
+								if(optionDialogueNumber>playerSpeech.festivalOption2.length-1){
+									optionDialoguePlaying=false;
+									optionValue=null;
+									playerChoices="Makise";
+								}
+							}
+						}
+
+						else if(optionText1=="Hiyori"){
+							if(optionValue=="option2"){
+								optionDialogueNumber=optionDialogue(playerName,playerSpeech.festivalOption3,0);
+
+								if(optionDialogueNumber>playerSpeech.festivalOption3.length-1){
+									optionDialoguePlaying=false;
+									optionValue=null;
+									playerChoices="Hiyori";
+								}
+							}
+						}
+						//Optiontext 2
+						if(optionText2=="Aqua"){
+							if(optionValue=="option2"){
+								optionDialogueNumber=optionDialogue(playerName,playerSpeech.festivalOption1,0);
+
+								if(optionDialogueNumber>playerSpeech.festivalOption1.length-1){
+									optionDialoguePlaying=false;
+									optionValue=null;
+									playerChoices="Aqua";
+								}
+							}						
+						}
+
+
+						else if(optionText2=="Makise"){
+							if(optionValue=="option2"){
+								optionDialogueNumber=optionDialogue(playerName,playerSpeech.festivalOption2,0);
+
+								if(optionDialogueNumber>playerSpeech.festivalOption2.length-1){
+									optionDialoguePlaying=false;
+									optionValue=null;
+									playerChoices="Makise";
+								}
+							}
+						}
+
+						else if(optionText2=="Hiyori"){
+							if(optionValue=="option2"){
+								optionDialogueNumber=optionDialogue(playerName,playerSpeech.festivalOption3,0);
+
+								if(optionDialogueNumber>playerSpeech.festivalOption3.length-1){
+									optionDialoguePlaying=false;
+									optionValue=null;
+									playerChoices="Hiyori";
+								}
+							}
+						}
+					}
+				}
+			}
+
+			//last option
+			if(girlNames.length==1){
+				/*Third choice*/
+				if(dialogueNumber==4){
+					let optionText=$("#option1").html();
+					if(optionText=="Aqua"){
+						if(optionValue=="option1"){
+							optionDialogueNumber=optionDialogue(playerName,playerSpeech.festivalOption1,0);
+
+							if(optionDialogueNumber>playerSpeech.festivalOption1.length-1){
+								optionDialoguePlaying=false;
+								optionValue=null;
+								playerChoices="Aqua";
+							}
+						}						
+					}
+
+
+					else if(optionText=="Makise"){
+						if(optionValue=="option1"){
+							optionDialogueNumber=optionDialogue(playerName,playerSpeech.festivalOption2,0);
+
+							if(optionDialogueNumber>playerSpeech.festivalOption2.length-1){
+								optionDialoguePlaying=false;
+								optionValue=null;
+								playerChoices="Makise";
+							}
+						}
+					}
+					else if(optionText=="Hiyori"){
+						if(optionValue=="option1"){
+							optionDialogueNumber=optionDialogue(playerName,playerSpeech.festivalOption3,0);
+
+							if(optionDialogueNumber>playerSpeech.festivalOption3.length-1){
+								optionDialoguePlaying=false;
+								optionValue=null;
+								playerChoices="Hiyori";
+							}
+						}
+					}
+				}
+			}
+
+
+			if(dialogueNumber==dialogueLength+1){
+				if(playerChoices=="Aqua"){
+					scene="2-2a";
+					//reshow hidden option boxes
+					$(".btnChoose").show();
+					$(".btnChoose").css("background-color", "lightpink");
+					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					$("#gameScreen").css("background-image", "url(images/backgroundFestivalAqua.jpg)");
+					dialogueNumber=0;
+					$("#cntAqua").show();					
+				}
+				if(playerChoices=="Makise"){
+					scene="2-2b";
+					//reshow hidden option boxes
+					$(".btnChoose").show();
+					$(".btnChoose").css("background-color", "lightpink");
+					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					$("#gameScreen").css("background-image", "url(images/backgroundFestivalMakise.jpg)");
+					dialogueNumber=0;
+					$("#cntMakise").show();	
+					
+				}
+				if(playerChoices=="Hiyori"){
+					scene="2-2c";
+					//reshow hidden option boxes
+					$(".btnChoose").show();
+					$(".btnChoose").css("background-color", "lightpink");
+					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					$("#gameScreen").css("background-image", "url(images/backgroundFestivalHiyori.jpg)");
+					dialogueNumber=0;
+					$("#cntHiyori").show();	
+				}
+			}
+		}
+	});
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the second scene to the, aqua's path 2-2a.
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+	$("#btnNext").click(function(event) {
+		if(scene=="2-2a"){
+			$(".btnChoose").show();
+
+			if(optionDialoguePlaying==false){
+				dialogueLength=aquaspeech.festivalAqua.length;
+				updateDialogue("Aqua",aquaspeech.festivalAqua[dialogueNumber]);
+				dialogueNumber++;
+
+				if(dialogueNumber==5){
+					optionDialoguePlaying=true;
+					$("#cntOptions").fadeIn();
+					$("#option1").html("Let's go play that matching game!");
+					$("#option2").html("Whatever you want to do");
+					$("#option3").html("I'm hungry, let's go eat");
+				}
+			}
+
+			/*first choice*/
+			if(dialogueNumber==5){
+				if(optionValue=="option1"){
+					optionDialogueNumber=optionDialogue("Aqua",aquaspeech.festivalAquaOption1,optionDialogueNumber);
+
+					if(optionDialogueNumber>aquaspeech.festivalAquaOption1.length){
+						optionDialoguePlaying=false;
+						optionValue=null;
+						$("#gameScreenCardMatchGame").fadeIn();
+					}
+				}
+
+				else if(optionValue=="option2"){
+					optionDialogueNumber=optionDialogue("Aqua",aquaspeech.festivalAquaOption2,optionDialogueNumber);
+
+					if(optionDialogueNumber>aquaspeech.festivalAquaOption2.length){
+						optionDialoguePlaying=false;
+						optionValue=null;
+						$("#gameScreenCardMatchGame").fadeIn();	
+					}
+				}
+
+				else if(optionValue=="option3"){
+					optionDialogueNumber=optionDialogue("Aqua",aquaspeech.festivalAquaOption3,optionDialogueNumber);
+
+					if(optionDialogueNumber>aquaspeech.festivalAquaOption3.length){
+						optionDialoguePlaying=false;
+						optionValue=null;
+						$("#gameScreenCardMatchGame").fadeIn();
+					}
+				}
+			}
+
+			/*Here it gets complicated...
+			it first checks if the next scene is ready in the if statemet
+			Then it checks if the player has checked on the 3 girls.
+			If they have not, then the code sends the player back to a screen with the remaining options
+			*/
+			if(dialogueNumber==dialogueLength+1){
+				aquaAffection=updateAffection("aqua",(2*playerMiniGameScore),aquaAffection);
+
+				if(girlNames.length==1){
+					scene="2-3";
+					alert("SAWWAOED");
+					$(".btnChoose").css("background-color", "lightpink");
+					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					$("#gameScreen").css("background-image", "url(images/backgroundFestival.jpg)");
+					dialogueNumber=0;
+					$("#cntAqua").hide();
+				}
+				else{
+					scene="2-1";
+					$(".cntCharacterText2").html(playerName);
+					$("#speechText").html("...I'm back here now.");
+					textAnimation();				
+					//I have to hide the one you already clicked on because you don't want to visit the same girl twice
+					//reshow hidden option boxes
+					$(".btnChoose").css("background-color", "lightpink");
+					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					$("#gameScreen").css("background-image", "url(images/backgroundFestival.jpg)");
+					dialogueNumber=0;
+					$("#cntAqua").hide();
+					hideGirl();
+				}
+			}
+		}
+	});
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the second scene to the game, makises path 2-2b.
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+	$("#btnNext").click(function(event) {
+		if(scene=="2-2b"){
+			$(".btnChoose").show();
+			if(optionDialoguePlaying==false){
+				dialogueLength=makiseSpeech.festivalMakise.length;
+				updateDialogue("Makise",makiseSpeech.festivalMakise[dialogueNumber]);
+				dialogueNumber++;
+
+				if(dialogueNumber==4){
+					optionDialoguePlaying=true;
+					$("#cntOptions").fadeIn();
+					$("#option1").html("How about riddles?");
+					$("#option2").html("I don't know");
+					$("#option3").html("I'm hungry");
+				}
+			}
+
+			/*first choice*/
+			if(dialogueNumber==4){
+				if(optionValue=="option1"){
+					optionDialogueNumber=optionDialogue("Makise",makiseSpeech.festivalMakiseOption1,optionDialogueNumber);
+
+					if(optionDialogueNumber>makiseSpeech.festivalMakiseOption1.length-1){
+						optionDialoguePlaying=false;
+						optionValue=null;
+					}
+				}
+
+				else if(optionValue=="option2"){
+					optionDialogueNumber=optionDialogue("Makise",makiseSpeech.festivalMakiseOption2,optionDialogueNumber);
+
+					if(optionDialogueNumber>makiseSpeech.festivalMakiseOption2.length-1){
+						optionDialoguePlaying=false;
+						optionValue=null;
+					}
+				}
+
+				else if(optionValue=="option3"){
+					optionDialogueNumber=optionDialogue("Makise",makiseSpeech.festivalMakiseOption3,optionDialogueNumber);
+
+					if(optionDialogueNumber>makiseSpeech.festivalMakiseOption3.length-1){
+						optionDialoguePlaying=false;
+						optionValue=null;
+
+					}
+				}
+			}
+
+			if(dialogueNumber==dialogueLength+1){
+				if(girlNames.length==1){
+					alert("SAWWAOED");
+					scene="2-3";
+					$(".btnChoose").css("background-color", "lightpink");
+					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					$("#gameScreen").css("background-image", "url(images/backgroundFestival.jpg)");
+					dialogueNumber=0;
+					$("#cntMakise").hide();
+				}
+				else{
+					scene="2-1";
+					$(".cntCharacterText2").html(playerName);
+					$("#speechText").html("...I survived Makise!");
+					textAnimation();
+					//I have to hide the one you already clicked on because you don't want to visit the same girl twice
+					//reshow hidden option boxes
+					$(".btnChoose").css("background-color", "lightpink");
+					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					$("#gameScreen").css("background-image", "url(images/backgroundFestival.jpg)");
+					dialogueNumber=0;
+					$("#cntMakise").hide();
+					hideGirl(playerChoices);
+				}
+			}
+		}
+	});
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the second scene to the game, hiyoris path 2-2c.
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+	$("#btnNext").click(function(event) {
+		if(scene=="2-2c"){
+			$(".btnChoose").show();
+			if(optionDialoguePlaying==false){
+				dialogueLength=hiyorispeech.festivalHiyori.length;
+				updateDialogue("Hiyori",hiyorispeech.festivalHiyori[dialogueNumber]);
+				dialogueNumber++;
+
+				if(dialogueNumber==8){
+					optionDialoguePlaying=true;
+					$("#cntOptions").fadeIn();
+					$("#option1").html("There's a fun looking game over there!");
+					$("#option2").html("What you want to do, Hiyori.");
+					$("#option3").html("Let's try out the food!");
+				}
+			}
+
+			/*first choice*/
+			if(dialogueNumber==8){
+				if(optionValue=="option1"){
+					optionDialogueNumber=optionDialogue(playerName,hiyorispeech.festivalHiyoriOption1,optionDialogueNumber);
+
+					if(optionDialogueNumber>hiyorispeech.festivalHiyoriOption1.length){
+						optionDialoguePlaying=false;
+						optionValue=null;
+						$("#cntGuessingGame").fadeIn();
+					}
+				}
+
+				else if(optionValue=="option2"){
+					optionDialogueNumber=optionDialogue(playerName,hiyorispeech.festivalHiyoriOption2,optionDialogueNumber);
+
+					if(optionDialogueNumber>hiyorispeech.festivalHiyoriOption2.length){
+						optionDialoguePlaying=false;
+						optionValue=null;
+						$("#cntGuessingGame").fadeIn();
+					}
+				}
+
+				else if(optionValue=="option3"){
+					optionDialogueNumber=optionDialogue(playerName,hiyorispeech.festivalHiyoriOption3,optionDialogueNumber);
+
+					if(optionDialogueNumber>hiyorispeech.festivalHiyoriOption3.length){
+						optionDialoguePlaying=false;
+						optionValue=null;
+						$("#cntGuessingGame").fadeIn();
+					}
+				}
+			}
+
+			if(dialogueNumber==dialogueLength+1){
+			hiyoriAffection=updateAffection("hiyori",(6*playerMiniGameScore),hiyoriAffection);
+
+				if(girlNames.length==1){
+					scene="2-3";
+					$(".btnChoose").css("background-color", "lightpink");
+					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					$("#gameScreen").css("background-image", "url(images/backgroundFestival.jpg)");
+					dialogueNumber=0;
+					$("#cntHiyori").hide();
+				}
+				else{
+					scene="2-1";
+					$(".cntCharacterText2").html(playerName);
+					$("#speechText").html("...Kawaii!");
+					textAnimation();
+					//I have to hide the one you already clicked on because you don't want to visit the same girl twice
+					//reshow hidden option boxes
+					$(".btnChoose").css("background-color", "lightpink");
+					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					$("#gameScreen").css("background-image", "url(images/backgroundFestival.jpg)");
+					dialogueNumber=0;
+					$("#cntHiyori").hide();
+					hideGirl();
+				}
+			}
+		}
+	});
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the third scene to the game 2-3.
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+	optionDialoguePlaying=false;
+
+	$("#btnNext").click(function(event) {
+		if(scene=="2-3"){
+			if(optionDialoguePlaying==false){
+				dialogueLength=playerSpeech.festivalFood.length;
+				updateDialogue(playerName,playerSpeech.festivalFood[dialogueNumber]);
+				dialogueNumber++;
+
+				if(dialogueNumber==dialogueLength){
+					optionDialoguePlaying=true;
+					$("#cntOptions").fadeIn();
+					$("#option1").html("Aqua");
+					$("#option2").html("Makise");
+					$("#option3").html("Hiyori");
+				}
+			}
+
+			/*first choice*/
+			if(dialogueNumber==8){
+				if(optionValue=="option1"){
+					optionDialogueNumber=optionDialogue(playerName,playerSpeech.festivalFoodOption1,optionDialogueNumber);
+
+					if(optionDialogueNumber>playerSpeech.festivalFoodOption1.length-1){
+						optionDialoguePlaying=false;
+						optionValue="Aqua";
+					}
+				}
+
+				else if(optionValue=="option2"){
+					optionDialogueNumber=optionDialogue(playerName,playerSpeech.festivalFoodOption2,optionDialogueNumber);
+
+					if(optionDialogueNumber>playerSpeech.festivalFoodOption2.length-1){
+						optionDialoguePlaying=false;
+						optionValue="Makise";
+					}
+				}
+
+				else if(optionValue=="option3"){
+					optionDialogueNumber=optionDialogue(playerName,playerSpeech.festivalFoodOption3,optionDialogueNumber);
+
+					if(optionDialogueNumber>playerSpeech.festivalFoodOption3.length-1){
+						optionDialoguePlaying=false;
+						optionValue="Hiyori";
+					}
+				}
+			}
+
+			/*This just checks which option the player chose and sends them to 
+			the correct scene*/
+			if(dialogueNumber==dialogueLength+1){
+				if(optionValue=="Aqua"){
+					scene="2-4a";
+
+					$(".btnChoose").css("background-color", "lightpink");
+					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					$("#gameScreen").css("background-image", "url(images/backgroundFestival.jpg)");
+					dialogueNumber=0;	
+					optionValue=null;
+					$("#cntAqua").show();				
+				}
+
+				if(optionValue=="Makise"){
+					scene="2-4b";
+
+					$(".btnChoose").css("background-color", "lightpink");
+					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					$("#gameScreen").css("background-image", "url(images/backgroundFestival.jpg)");
+					dialogueNumber=0;	
+					optionValue=null;	
+					$("#cntMakise").show();				
+				}
+
+				if(optionValue=="Hiyori"){
+					scene="2-4c";
+
+					$(".btnChoose").css("background-color", "lightpink");
+					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					$("#gameScreen").css("background-image", "url(images/backgroundFestival.jpg)");
+					dialogueNumber=0;
+					optionValue=null;
+					$("#cntHiyori").show();						
+				}
+			}
+		}
+	});
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the scene to the game 2-4a. Aqua's path.
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+
+	$("#btnNext").click(function(event) {
+		if(scene=="2-4a"){
+			if(optionDialoguePlaying==false){
+				dialogueLength=aquaspeech.eating.length;
+				updateDialogue("Aqua",aquaspeech.eating[dialogueNumber]);
+				dialogueNumber++;
+			}
+
+			if(dialogueNumber==dialogueLength+1){
+				scene="2-5";
+				$("#cntAqua").hide();
+				aquaAffection=updateAffection("aqua",25,aquaAffection);
+				$(".btnChoose").css("background-color", "lightpink");
+				$("#black").fadeIn().fadeOut(5000);
+				dialogueNumber=0;
+			}
+		}
+	});
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the scene to the game 2-4b. Makise's path.
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+
+	$("#btnNext").click(function(event) {
+		if(scene=="2-4b"){
+			if(optionDialoguePlaying==false){
+				dialogueLength=makiseSpeech.eating.length;
+				updateDialogue("Makise",makiseSpeech.eating[dialogueNumber]);
+				dialogueNumber++;
+			}
+
+			if(dialogueNumber==dialogueLength+1){
+				scene="2-5";
+				$("#cntMakise").hide();
+				makiseAffection=updateAffection("makise",25,makiseAffection);
+				$(".btnChoose").css("background-color", "lightpink");
+				$("#black").fadeIn().fadeOut(5000);
+				dialogueNumber=0;
+			}
+		}
+	});
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the scene to the game 2-4c. Hiyori's path.
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+
+	$("#btnNext").click(function(event) {
+		if(scene=="2-4c"){
+			if(optionDialoguePlaying==false){
+				dialogueLength=hiyorispeech.eating.length;
+				updateDialogue("Hiyori",hiyorispeech.eating[dialogueNumber]);
+				dialogueNumber++;
+			}
+
+			if(dialogueNumber==dialogueLength+1){
+				scene="2-5";
+				$("#cntHiyori").hide();
+				hiyoriAffection=updateAffection("hiyori",25,hiyoriAffection);
+				$(".btnChoose").css("background-color", "lightpink");
+				$("#black").fadeIn().fadeOut(5000);
+				dialogueNumber=0;
+			}
+		}
+	});
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description:This is the scene to the game 2-5.
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+
+	$("#btnNext").click(function(event) {
+		if(scene=="2-5"){
+			if(optionDialoguePlaying==false){
+				dialogueLength=playerSpeech.endGame.length;
+				updateDialogue(playerName,playerSpeech.endGame[dialogueNumber]);
+				dialogueNumber++;
+
+				if(dialogueNumber==10){
+					optionDialoguePlaying=true;
+					$("#cntOptions").fadeIn();
+					$("#option1").html("Aqua");
+					$("#option2").html("Makise");
+					$("#option3").html("Hiyori");
+				}
+			}
+
+			/*first choice*/
+			if(dialogueNumber==10){
+				if(optionValue=="option1"){
+					optionDialogueNumber=optionDialogue(playerName,playerSpeech.endGameOption1,optionDialogueNumber);
+
+					if(optionDialogueNumber>playerSpeech.endGameOption1.length-1){
+						optionDialoguePlaying=false;
+						optionValue="Aqua";
+					}
+				}
+
+				else if(optionValue=="option2"){
+					optionDialogueNumber=optionDialogue(playerName,playerSpeech.endGameOption2,optionDialogueNumber);
+
+					if(optionDialogueNumber>playerSpeech.endGameOption2.length-1){
+						optionDialoguePlaying=false;
+						optionValue="Makise";
+					}
+				}
+
+				else if(optionValue=="option3"){
+					optionDialogueNumber=optionDialogue(playerName,playerSpeech.endGameOption3,optionDialogueNumber);
+
+					if(optionDialogueNumber>playerSpeech.endGameOption3.length-1){
+						optionDialoguePlaying=false;
+						optionValue="Hiyori";
+					}
+				}
+			}
+
+			/*This does the same thing as previouysly stated,
+			exept its for the last scene*/
+			if(dialogueNumber==dialogueLength+1){
+				if(optionValue=="Aqua"){
+					scene="2-6a";
+
+					$(".btnChoose").css("background-color", "lightpink");
+					$("#black").fadeIn().fadeOut(5000);
+					$("#gameScreen").css("background-image", "url(images/backgroundFireworks.jpg)");
+					dialogueNumber=0;	
+					$("#cntAqua").show();				
+				}
+
+				if(optionValue=="Makise"){
+					scene="2-6b";
+
+					$(".btnChoose").css("background-color", "lightpink");
+					$("#black").fadeIn().fadeOut(5000);
+					$("#gameScreen").css("background-image", "url(images/backgroundFireworks.jpg)");
+					dialogueNumber=0;		
+					$("#cntMakise").show();				
+				}
+
+				if(optionValue=="Hiyori"){
+					scene="2-6c";
+
+					$(".btnChoose").css("background-color", "lightpink");
+					$("#black").fadeIn().fadeOut(5000);
+					$("#gameScreen").css("background-image", "url(images/backgroundFireworks.jpg)");
+					dialogueNumber=0;
+					$("#cntHiyori").show();						
+				}
+			}
+		}
+	});
+});
+
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description: We need a break pls.... longer than 20 hours of work...scene 2-6a
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+	let accepted=null;
+
+	$("#btnNext").click(function(event) {
+		if(scene=="2-6a"){
+			if(accepted==null){
+				accepted=checkIfYouAreNotALonerLOL(aquaAffection);
+			}
+
+			if(accepted){
+				optionDialogueNumber=optionDialogue("Aqua",aquaspeech.datingWin,optionDialogueNumber);
+				/*Here the player is sucsessfull and fades in a winner screen*/
+				if(optionDialogueNumber==aquaspeech.datingWin.length){
+					$("#gameScreen").fadeOut(1000);
+					$(".endScreenPicture").fadeIn(1000);
+					$("#gameScreenSuccess").fadeIn(1000);
+				}
+			}
+
+			else{
+				optionDialogueNumber=optionDialogue("Aqua",aquaspeech.datingFail,optionDialogueNumber);
+				/*Here the player failed and fades in a loser screen*/
+				if(optionDialogueNumber==aquaspeech.datingFail.length){
+					$("#gameScreen").fadeOut(1000);
+					$(".endScreenPicture").fadeIn(1000);
+					$("#gameScreenFail").fadeIn(1000);
+				}
+			}
+		}
+	});
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description: This is seriously getting long and tedious 2-6b.
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+	let accepted=null;
+
+	$("#btnNext").click(function(event) {
+		if(scene=="2-6b"){
+			if(accepted==null){
+				accepted=checkIfYouAreNotALonerLOL(makiseAffection);
+			}
+
+			if(accepted){
+				optionDialogueNumber=optionDialogue("Makise",makiseSpeech.datingWin,optionDialogueNumber);
+				/*Here the player is sucsessfull and fades in a winner screen*/
+
+				if(optionDialogueNumber==makiseSpeech.datingWin.length){
+					$("#gameScreen").fadeOut(1000);
+					$(".endScreenPicture").fadeIn(1000);
+					$("#gameScreenSuccess").fadeIn(1000);
+				}
+			}
+
+			else{
+				optionDialogueNumber=optionDialogue("Makise",makiseSpeech.datingFail,optionDialogueNumber);
+				/*Here the player failed and fades in a loser screen*/
+
+				if(optionDialogueNumber==makiseSpeech.datingWin.length){
+					$("#gameScreen").fadeOut(1000);
+					$(".endScreenPicture").fadeIn(1000);
+					$("#gameScreenFail").fadeIn(1000);
+				}
+			}
+		}
+	});
+});
+
+/*
+Title:Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/1/11
+Description: i want to watch anime all day long and watch hentai but theres too much work and I have no sleep because im too lazy pls scene 2-6
+*/
+
+$(document).ready(function($) {
+	let optionDialogueNumber=0;
+	let accepted=null;
+
+	$("#btnNext").click(function(event) {
+		if(scene=="2-6c"){
+			if(accepted==null){
+				accepted=checkIfYouAreNotALonerLOL(hiyoriAffection);
+			}
+
+			if(accepted){
+				optionDialogueNumber=optionDialogue("Hiyori",hiyorispeech.datingWin,optionDialogueNumber);
+				/*Here the player is sucsessfull and fades in a winner screen*/
+
+				if(optionDialogueNumber==hiyorispeech.datingWin.length){
+					$("#gameScreen").fadeOut(1000);
+					$(".endScreenPicture").fadeIn(1000);
+					$("#gameScreenSuccess").fadeIn(1000);
+				}
+			}
+
+			else{
+				optionDialogueNumber=optionDialogue("Hiyori",hiyorispeech.datingFail,optionDialogueNumber);
+				/*Here the player failed and fades in a loser screen*/
+
+				if(optionDialogueNumber==hiyorispeech.datingFail.length){
+					$("#gameScreen").fadeOut(1000);
+					$(".endScreenPicture").fadeIn(1000);
+					$("#gameScreenFail").fadeIn(1000);
+				}
+			}
+		}
+	});
+});
+
+/*
+Title: Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/8/11
+Description: The code for the matching game.
+*/
+$(document).ready(function($) {
+	let firstGuess=null;
+	let firstGuessId=null;
+	let secondGuess=null;
+	let secondGuessId=null;
+	let nextRound=false;
+	let roundPairs=0;
+	let pairs=0;
+	let lives=3;
+	let lost=false;
+	let clickedNext=1;
+	let playerHighScore=0;
+	let hidden=false;
+	let highScores= [
+		[
+			10,
+			99999999999,
+			5
+		],
+
+		[
+			"Makise",
+			"Aqua",
+			"Hiyori"
+		]
+
+	]
+
+	for(let x=0;x<8;x++){
+		$("#gameTable").prepend("<div value='' class='cardBoxes' id='cardBox"+x+"'></div>");
+	}
+
+	$("#cntHighScores").hide();
+
+	resetCards(1);
+
+	$("#nextButtonCardMatchGame").click(function(event) {
+		/* Act on the event */
+		if(clickedNext==0){
+			clickedNext++;
+			resetCards(1);
+			roundPairs=0;
+			$("#gameTableHider").show();
+
+			if(lost){
+				$("#cardMatchingGamelives").html("Lives Left: "+lives);
+				$("#correctPairs").html("Pairs: "+pairs);
+				$("#nextButtonCardMatchGame").html("NEXT!");
+			}
+		}
+
+		else{
+			resetCards(2);
+			clickedNext=0;
+			$("#gameTableHider").hide();
+		}
+	});
+
+	$(".cardBoxes").click(function(event) {
+		//for some reason this if statememnt is needed to lock the cards... Dunno why tho
+		//when the code changes the calss to 'none'.. this code block still runs, so this if statement makes sure the class is not none
+		let cardClass=$(this).prop('class');
+
+		if(cardClass!="none"){
+			if(firstGuess==null || nextRound){
+				//reset last round cards
+				nextRound=false;
+				if(secondGuess!=firstGuess){
+					$("#cardCover"+firstGuessId).fadeIn();
+					$("#cardCover"+secondGuessId).fadeIn();
+					lives=lives-1;
+					$("#cardMatchingGamelives").html("Lives Left: "+lives);
+				}
+
+				firstGuess=null;
+				secondGuess=null;
+
+				firstGuess=$(this).attr("value");
+				firstGuessId=$(this).attr("id");
+				$("#cardCover"+firstGuessId).fadeOut();
+			}
+
+			else if(secondGuess==null){
+				secondGuess=$(this).attr("value");
+				secondGuessId=$(this).attr("id");
+				$("#cardCover"+secondGuessId).fadeOut();
+				nextRound=true;
+
+				if(secondGuessId==firstGuessId){
+					firstGuess='asdadsaddgfeqw';
+					lives+=1;
+					$("#cardCover"+firstGuessId).fadeIn();				
+				}
+
+				if(secondGuess==firstGuess){
+					$("#"+secondGuessId).css('background-color', 'green');
+					$("#"+firstGuessId).css('background-color', 'green');
+					//make cards unclickable
+					$("#"+secondGuessId).prop('class', 'none');
+					$("#"+firstGuessId).prop('class', 'none');
+					//add pairs
+					pairs++;
+					roundPairs++;
+					$("#correctPairs").html("Pairs: "+pairs);
+
+					if(playerHighScore<pairs){
+						playerHighScore=pairs;
+					}
+				}
+
+				if(roundPairs==4){
+					$("#nextButtonCardMatchGame").show();
+				}
+
+				if(secondGuess!=firstGuess && lives==0){
+					lost=true;
+					$("#nextButtonCardMatchGame").html("OUT OF LIVES! RETRY!");
+					lives=3;
+					pairs=0;
+					$("#gameTableHider").show();
+					$("#nextButtonCardMatchGame").show();
+				}
+			}
+		}
+	});
+
+	/*this quits the game and sets the playerMiniGameScore to player high score.
+	playerMiniGameScore is used to calculate an affection increase*/
+	$("#btnQuit").click(function(event) {
+		playerMiniGameScore=playerHighScore;
+		$("#gameScreenCardMatchGame").fadeOut();
+	});
+
+	$("#btnHighScores").click(function(event) {
+		cardGameHighScores();
+	});
+
+	/*This function uses bubble sorting to align names and their respective scores*/
+	function cardGameHighScores(){
+		if(hidden==false){
+			$("#btnHighScores").css({
+				'background-color' : 'white',
+				'color' : 'black'
+			});
+
+			highScores[0].push(pairs);
+			highScores[1].push(playerName);
+			hidden=true;
+
+			/*BUBBLE SORTING BE LIKE...for scores*/
+			for(let x=1;x<3;x++){
+				for(let y=0;y<3;y++){
+					if(highScores[0][y]<highScores[0][y+1]){
+						let temp=highScores[0][y+1];
+						highScores[0][y+1]=highScores[0][y];
+						highScores[0][y]=temp;
+						//swap names
+						temp=highScores[1][y+1];
+						highScores[1][y+1]=highScores[1][y];
+						highScores[1][y]=temp;
+					}
+				}
+			}
+
+			highScores[0].pop();
+			highScores[1].pop();
+
+			$("#firstPlaceScore").html(highScores[1][0]+": "+highScores[0][0]);
+			$("#secondPlaceScore").html(highScores[1][1]+": "+highScores[0][1]);
+			$("#thirdPlaceScore").html(highScores[1][2]+": "+highScores[0][2]);
+
+			$("#cntHighScores").show();
+		}
+
+		else if(hidden==true){
+			hidden=false;
+			$("#cntHighScores").hide();
+			$("#btnHighScores").css({
+				'background-color' : 'black',
+				'color' : 'white'
+			});
+		}
+	}
+
+	function resetCards(part){
+	if(part==1){
+		//reset card classes
+		for(let x=0;x<8;x++){
+			$("#cardBox"+x).prop('class', 'cardBoxes').css('background-color', 'white');
+
+		}
+
+		//this is all the posibilities for the card words
+		let matches=[
+			[
+				"Cow",
+				"Horse",
+				"Fish",
+				"Dog"
+			],
+
+			[
+				"s45",
+				"s98",
+				"s40",
+				"s88"
+			],
+
+			[
+				"Nier",
+				"FFXV",
+				"Beseria",
+				"Zestria"
+			],
+
+			[
+				"Sajeiv",
+				"Howard",
+				"Kowan",
+				"Kirnic"
+			],
+
+			[
+				"Kirby",
+				"Snake",
+				"Mario",
+				"Luigi"
+			],
+
+			[
+				"Loli",
+				"Harem",
+				"Ecchi",
+				"Yuri"
+			],
+
+			[
+				"Konosuba",
+				"Steins Gate",
+				"Noragami",
+				"Mankitsu",
+			]
+		]
+
+		//this allows ease of reset by cycling through the array
+		let cards=[
+			"cardBox0",
+			"cardBox1",
+			"cardBox2",
+			"cardBox3",
+			"cardBox4",
+			"cardBox5",
+			"cardBox6",
+			"cardBox7",
+		]
+
+		let category=Math.round(Math.random()*(matches.length-1));
+
+		for(let x=0;x<4;x++){
+			let word=Math.round(Math.random()*(matches[category].length-1));
+			let temp=Math.round(Math.random()*(cards.length-1));
+			//first matching card
+			$("#"+cards[temp]).html("<div class='cardMatchItems' style='position:absolute;'>"+matches[category][word]+"</div>");
+			$("#"+cards[temp]).attr('value', matches[category][word]);
+			cards.splice(temp,1);
+
+			//second matching card
+			temp=Math.round(Math.random()*(cards.length-1));
+			$("#"+cards[temp]).html("<div class='cardMatchItems' style='position:absolute;'>"+matches[category][word]+"</div>");
+			$("#"+cards[temp]).attr('value', matches[category][word]);
+			cards.splice(temp,1);
+
+			matches[category].splice(word,1);
+			}
+		}
+
+		else if(part==2){
+			for(let x=0;x<8;x++){
+				$("#cardBox"+x).append("<img class='cardCover' id='cardCovercardBox"+x+"' src='minigames/cardMatchGame/images/cardMatchGameImgs/card55.JPG'>");
+			}
+
+			$("#nextButtonCardMatchGame").hide();
+			$(".cardCover").show();
+		}
+	}
+});
+
+/*
+Title: Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/8/11
+Description: The css for the matching game.
+*/
+body{
+	margin:0;
+}
+
+#gameScreenCardMatchGame{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-image: url(images/cardMatchGameImgs/background.jpg);
+}
+
+#topBar{
+	position: absolute;
+	margin-left: 1%;
+	margin-top: 1%;
+	width: 98%;
+	height: 10%;
+	background-color: black;
+	color: white;
+	border-style: solid;
+	font-size: 8vh;
+	text-align: center;
+}
+
+#gameTable{
+	margin-top: 8%;
+	position: absolute;
+	width: 70%;
+	margin-left: 1%;
+	height: 80%;
+	border-style: solid;
+}
+
+#gameTable{
+	color: black;
+}
+
+#gameSideBox{
+	background-color: black;
+	color: white;
+	position: absolute;
+	margin-left: 72%;
+	margin-top: 8%;
+	width: 27%;
+	border-style: solid;
+	height: 80%;
+}
+
+.cardBoxes, .none{
+	position: relative;
+	background-color: white;
+	height: 40%;
+	display: inline-block;	
+	margin: 2% 5% 2% 4%;
+	width: 15%;
+	border-style: solid;
+	border-radius: 20px;
+	transition: 1s ease;
+	overflow: hidden;
+	color: black;
+}
+
+.cardMatchItems{
+	position: absolute;
+	text-align: center;
+	top: 40%;
+	font-size: 30px;
+	width: 100%;
+
+}
+
+#gameTableHider{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	opacity: 0.5;
+	top: 0;
+}
+
+.cardBoxes:hover{
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+.menuBox{
+	text-align: center;
+	width: 100%;
+	margin-top: 10%;
+	position: relative;
+	border-style: solid;
+	font-weight: 1000;
+	left: -3px;
+	font-size: 50px;
+}
+
+.menuBtn:hover{
+	background-color: white;
+	color: black;
+	cursor: pointer;
+}
+
+.cardCover{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#nextButtonCardMatchGame{
+	position: absolute;
+	width: 500px;
+	border-style: solid;
+	text-align: center;
+	font-size: 6vh;
+	color: white;
+	background-color: black;
+	transition: ease 1s;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	left: 25%;
+	top: 40%;
+}
+
+#nextButtonCardMatchGame:hover{
+	color: black;
+	background-color: white;
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+#cntHighScores{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: grey;
+}
+
+#cntHighScores{
+	color: white;
+	background-color: black;
+	font-size: 8vh;
+	text-align: center;
+}
+
+.highScoreNumbersCardGuess{
+	 margin-top: 5%;
+}
+
+#highScoreTitle{
+	font-weight: 1000;
+	text-decoration: underline;
+}
+
+/*
+Title: Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/8/11
+Description: The code for the guessing game.
+*/
+"use strict";
+$(document).ready(function($){
+	//local variables
+	let lives=20;
+	let wonRounds=0;
+	let guessNumber=8;
+	let guessNumber2=25;
+	let guessNumber3=49;
+	let guessNumber4=364;
+	let guessNumber5=500;
+	
+	//this hides stuff
+	$("#round2").hide();
+	$("#round3").hide();
+	$("#round4").hide();
+	$("#round5").hide();
+	$("#cntHint2").hide();
+	$("#cntHint3").hide();
+	$("#cntHint4").hide();
+	$("#cntHint5").hide();
+	$("#cntLoser").hide();
+	$("#question2").hide();
+	$("#question3").hide();
+	$("#question4").hide();
+	$("#question5").hide();
+	$("#youWin").hide();
+	//Round 1
+	$("#btnGuess").click(function(event){
+
+		if ($("#txtGuess").val()==guessNumber) 
+		{
+			wonRounds++;
+			$("#round1").fadeOut();
+			$("#cntHint").fadeOut();
+			$("#round2").fadeIn();
+			$("#cntHint2").fadeIn();
+			$("#question2").fadeIn();
+			$("#question1").hide();
+			$('#questionStatement').html("Guess the number of triangles in the picture:");
+		}
+
+		else if ($("#txtGuess").val()>=guessNumber-5 && $("#txtGuess").val()<=guessNumber+5) 
+		{
+			$("#cntHint").html("HOT! HOT! YOUR ANSWER WAS VERY CLOSE!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+		else if ($("#txtGuess").val()>=guessNumber-10 && $("#txtGuess").val()<=guessNumber+10) 
+		{
+			$("#cntHint").html("WARM!YOUR ANSWER WAS SOMEWHAT CLOSE!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+		else if ($("#txtGuess").val()<=guessNumber-20 && $("#txtGuess").val()>=guessNumber+10) 
+		{
+			$("#cntHint").html("YOUR ANSWER WAS COLD!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+		else
+		{
+			$("#cntHint").html("NOT EVEN CLOSE!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+	});
+	//Round 2
+	$("#btnGuess2").click(function(event){
+
+		if ($("#txtGuess2").val()==guessNumber2) 
+		{
+			$("#cntHint2").html("YOU GOT IT RIGHT WOW ONII CHAN");
+			wonRounds++;
+			$("#round2").fadeOut();
+			$("#cntHint2").fadeOut();
+			$("#round3").fadeIn();
+			$("#cntHint3").fadeIn();
+			$('#question2').hide();
+			$('#question3').fadeIn();
+			$('#questionStatement').html("Guess the number of monkeys in the picture:");
+
+		}
+
+		else if ($("#txtGuess2").val()>=guessNumber2-5 && $("#txtGuess2").val()<=guessNumber2+5) 
+		{
+			$("#cntHint2").html("HOT! HOT! YOUR ANSWER WAS VERY CLOSE!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+		else if ($("#txtGuess2").val()>=guessNumber2-10 && $("#txtGuess2").val()<=guessNumber2+10) 
+		{
+			$("#cntHint2").html("WARM! YOUR ANSWER WAS SOMEWHAT CLOSE!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+		else if ($("#txtGuess2").val()<=guessNumber2-20 && $("#txtGuess2").val()>=guessNumber2+10) 
+		{
+			$("#cntHint2").html("YOUR ANSWER WAS COLD!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+		else
+		{
+			$("#cntHint2").html("NOT EVEN CLOSE!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+	});
+	//Round 3
+	$("#btnGuess3").click(function(event){
+
+
+		if ($("#txtGuess3").val()==guessNumber3) 
+		{
+			$("#cntHint3").html("YOU GOT IT RIGHT WOW ONII CHAN");
+			wonRounds++;
+			$("#round3").fadeOut();
+			$("#cntHint3").fadeOut();
+			$("#round4").fadeIn();
+			$("#cntHint4").fadeIn();
+			$("#question3").hide();
+			$("#question4").fadeIn();
+			$('#questionStatement').html("How many days are in 52 weeks?");
+
+		}
+
+		else if ($("#txtGuess3").val()>=guessNumber3-5 && $("#txtGuess3").val()<=guessNumber3+5) 
+		{
+			$("#cntHint3").html("HOT! HOT! YOUR ANSWER WAS VERY CLOSE!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+		else if ($("#txtGuess3").val()>=guessNumber3-10 && $("#txtGuess3").val()<=guessNumber3+10) 
+		{
+			$("#cntHint3").html("WARM!YOUR ANSWER WAS SOMEWHAT CLOSE!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+		else if ($("#txtGuess3").val()<=guessNumber3-20 && $("#txtGuess3").val()>=guessNumber3+10) 
+		{
+			$("#cntHint3").html("YOUR ANSWER WAS COLD!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+		else
+		{
+			$("#cntHint3").html("NOT EVEN CLOSE!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+
+	});
+		//Round 4
+		$("#btnGuess4").click(function(event){
+
+
+		if ($("#txtGuess4").val()==guessNumber4) 
+		{
+			$("#cntHint4").html("YOU GOT IT RIGHT WOW ONII CHAN");
+			wonRounds++;
+			$("#round4").fadeOut();
+			$("#cntHint4").fadeOut();
+			$("#round5").fadeIn();
+			$("#cntHint5").fadeIn();
+			$("#question4").hide();
+			$("#question5").fadeIn();
+			$('#questionStatement').html("How many Canadian cents is 267.22 Indian Rupees?");
+		}
+
+		else if ($("#txtGuess4").val()>=guessNumber4-5 && $("#txtGuess4").val()<=guessNumber4+5) 
+		{
+			$("#cntHint4").html("HOT! HOT! YOUR ANSWER WAS VERY CLOSE!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+		else if ($("#txtGuess4").val()>=guessNumber4-10 && $("#txtGuess4").val()<=guessNumber4+10) 
+		{
+			$("#cntHint4").html("WARM!YOUR ANSWER WAS SOMEWHAT CLOSE!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+		else if ($("#txtGuess4").val()<=guessNumber4-20 && $("#txtGuess4").val()>=guessNumber4+10) 
+		{
+			$("#cntHint4").html("YOUR ANSWER WAS COLD!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+		else
+		{
+			$("#cntHint4").html("NOT EVEN CLOSE!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+
+	});
+		//Round 5
+		$("#btnGuess5").click(function(event){
+
+
+		if ($("#txtGuess5").val()==guessNumber5) 
+		{
+			$("#cntHint5").html("YOU GOT IT RIGHT WOW ONII CHAN");
+			wonRounds++;
+			$("#question5").hide();
+			$("#youWin").fadeIn();
+			$('#questionStatement').html("YOU WIN!");
+			//transition page into winning scene!!!
+		
+		}
+
+		else if ($("#txtGuess5").val()>=guessNumber5-5 && $("#txtGuess5").val()<=guessNumber5+5) 
+		{
+			$("#cntHint5").html("HOT! HOT! YOUR ANSWER WAS VERY CLOSE!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+		else if ($("#txtGuess5").val()>=guessNumber5-10 && $("#txtGuess5").val()<=guessNumber5+10) 
+		{
+			$("#cntHint5").html("WARM!YOUR ANSWER WAS SOMEWHAT CLOSE!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+		else if ($("#txtGuess5").val()<=guessNumber5-20 && $("#txtGuess5").val()>=guessNumber5+10) 
+		{
+			$("#cntHint5").html("YOUR ANSWER WAS COLD!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+		else
+		{
+			$("#cntHint5").html("NOT EVEN CLOSE!");
+			playerLoss(lives);
+			lives=lives-1;
+			$("#cntLives").html("Lives: "+lives);
+		}
+	});
+
+	$("#sajeivsQuitButtonForHisGame").click(function(event) {
+		if(wonRounds>5){
+			wonRounds=5;
+		}
+		playerMiniGameScore=wonRounds;
+		$("#cntGuessingGame").fadeOut();
+	});
+});
+
+function playerLoss(livesRemaining)
+{
+	if(livesRemaining==1)
+	{
+		$("#cntGameSajeivGame").fadeOut();
+		$("#cntLoser").fadeIn();
+		//Include an if statement with the different story paths that will load based on the "wonRounds" variable!
+		//If wonRounds=0 do this || or if wonRounds=3 do this
+	}
+}
+
+/*
+Title: Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/8/11
+Description: The css for the matching game.
+*/
+body
+{
+	margin-top:0%;
+	margin-left:0%;
+	color: #f4e842;
+	font-family: 'PT Sans', sans-serif;
+}
+
+.groupHint{
+	border-style: solid;
+	border-radius: 5px;
+	padding: 15px;
+}
+
+#btnGuess{
+	background-color: lightblue;
+}
+#sajeivsQuitButtonForHisGame{
+	position: absolute;
+	border-style: solid;
+	background-color: lightgrey;
+	border-radius: 20px;
+	text-align: center;
+	font-size: 6vh;
+	color: darkblue;
+	bottom: 5%;
+	height: 8%;
+	width: 20%;
+	right: 5%;
+	transition: 1s ease;
+}
+
+#sajeivsQuitButtonForHisGame:hover{
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+#cntGuessingGame
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url(images/background.jpg);
+}
+#cntGameSajeivGame
+{
+	position: absolute;
+	width: 90%;
+	height: 90%;
+	opacity: 0.9;
+	border-style: solid;
+	background-color: lightpink;
+	top:6%;
+	right:4.5%;
+}
+
+#cntLoser
+{
+	position: absolute;
+	width: 90%;
+	height: 90%;
+	opacity: 0.7;
+	border-style: solid;
+	background-color: lightpink;
+	top:6%;
+	right:4.5%;
+	background-image: url(images/loser.jpg);
+	background-size: 100%;
+}
+.groupTitle
+{
+	text-align: center;
+}
+.groupSubTitle
+{
+	text-align: center;
+}
+#round1
+{	
+	position: absolute;
+	right: 43%;
+	top: 70%;
+
+}
+#round2
+{	
+	position: absolute;
+	right: 43%;
+	top:70%; /*30*/
+}
+#round3
+{	
+	position: absolute;
+	right: 43%; 
+	top:70%; /*40*/
+}
+#round4
+{	
+	position: absolute;
+	right: 43%;
+	top:70%;
+}
+#round5
+{	
+	position: absolute;
+	right: 43%;
+	top:70%;
+}
+#cntLives
+{
+	position: absolute;
+	right: 45%;
+	top: 85%;
+	font-size: 40px;
+
+}
+#round1Complete
+{	
+	right: 40%;
+	position: absolute;
+	top: 20%;
+	font-size: 20px;
+	font-family: impact;
+	color: red;
+}
+.groupHint
+{
+	position: absolute;
+	right: 40%;
+	top: 75%;
+	text-align: center;
+}
+#cntGamePicture
+{
+	position: absolute;
+	width: 50%;
+	height: 45%;
+	top: 20%;
+	right: 25%;
+	border-style: solid;
+	background-color: lightblue;
+}
+.gamePicture
+{
+	height: 100%;
+	width: 100%;
+}
+.groupGuess
+{
+	right: 45%;
+}
+#cntHint3
+{
+	right: 45%;
+}

@@ -1,0 +1,359 @@
+<!--
+Title: Loli Harem Paradise
+By:Howard,Sajeiv,Kowan
+Date Started:2019/8/11
+Description:This is the html page for the game. This is the page where you play the game.
+-->
+<!DOCTYPE html>
+	<head>
+		<title>
+			Summative Project ICS3U
+		</title>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="dialogue.js"></script>
+		<script type="text/javascript" src="functions.js"></script>
+		<script type="text/javascript" src="code.js"></script>
+		<!-- scene 1 -->
+		<script type="text/javascript" src="scene1/scene_1-1.js"></script>
+		<script type="text/javascript" src="scene1/scene_1-2.js"></script>
+		<script type="text/javascript" src="scene1/scene_1-3.js"></script>
+		<script type="text/javascript" src="scene1/scene_1-4.js"></script>
+		<script type="text/javascript" src="scene1/scene_1-5.js"></script>
+		<!-- scene 2 -->
+		<script type="text/javascript" src="scene2/scene_2-1.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-2a.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-2b.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-2c.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-3.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-4a.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-4b.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-4c.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-5.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-6a.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-6b.js"></script>
+		<script type="text/javascript" src="scene2/scene_2-6c.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<!-- card Match Minigame -->
+		<script type="text/javascript" src="minigames/cardMatchGame/cardMatchGame.js"></script>
+		<link rel="stylesheet" type="text/css" href="minigames/cardMatchGame/cardMatchGame.css">
+		<!-- sajeivs game -->
+		<script type="text/javascript" src="minigames/guessThatNumber/guessingGame.js"></script>
+		<link rel="stylesheet" type="text/css" href="minigames/guessThatNumber/styles.css">
+	</head>
+	<body>
+		<div id="gameMusic">
+			<embed>
+				<audio src="../audio/titleMusic.mp3" id="titleMusic" autoplay hidden></audio>
+			</embed>
+			<audio src="../audio/casualMusic.mp3" id="casualMusic" hidden controls loop class="gameMusic"></audio>
+			<div id="SFXOff">
+				<audio id="characterSounds" controls src="../audio/textSounds.mp3"></audio>
+			</div>
+		</div>
+
+		<div id="startScreen" class="allGamePhases" style="background-image:url(images/schoolFront.png);">
+
+			<div id="startScreenTitle">
+				Loli Harem Paradise
+			</div>
+
+			<!-- the girls in front -->
+			<div class="cntCharacter Aqua" style="left: 10%;"> 
+				<img class="imgCharacter" src="images/girl1/aquaNeutral.png">
+			</div>
+
+			<div class="cntCharacter Makise" style="left: 40%;"> 
+				<img class="imgCharacter" src="images/girl2/makiseNeutral.png">
+			</div>
+
+			<div class="cntCharacter Hiyori" style="left: 65%;"> 
+				<img class="imgCharacter" src="images/girl3/hiyoriHot.png">
+			</div>
+			<!-- this stuff is created after the images so overlaps do not affect interaction -->
+			<div style="position: absolute; top: 20%; font-size: 30px; width: 100%; text-align: center;">
+			<b>What is your name?</b>
+			</div>
+			<input type="text" id="txtPlayerName">
+			<div class="btnCustom" id="btnPlayerName" style="top: 30%; left: 44.5%;">START!</div>
+		</div>
+
+		<div id="gameScreen" class="allGamePhases" style="background-image: url(images/neighborhood.jpg);">
+
+			<div id="settingsIcon">
+				
+			</div>
+			<div id="settingsIconOn">
+				
+			</div>
+			
+			<div id="muteAll" class="musicToggles">
+				
+			</div>
+			<div id="unmuteAll" class="musicToggles">
+				
+			</div>
+			
+
+			<div class="cntCharacter Aqua" style="left: 30%;">
+				<img id="cntAqua" class="imgCharacter" src="images/girl1/aquaNeutral.png">
+			</div>
+			<div class="cntCharacter Hiyori" style="left: 30%;">
+				<img id="cntHiyori" class="imgCharacter" src="images/girl3/hiyoriHot.png">
+			</div>		
+			<div class="cntCharacter Makise" style="left: 40%;">
+				<img id="cntMakise" class="imgCharacter" src="images/girl2/makiseNeutral.png">
+			</div>		
+
+			<div class="cntCharacterText2"></div>
+
+			<div class="cntCharacterText">
+				<div id="speechText">
+				</div>
+			</div>
+
+			<div id="cntOptions" style="color: black;">
+				<div class="btnChoose btnOptions" id="option1">option 1</div>	
+				<br>
+				<div class="btnChoose btnOptions" id="option2">option 2</div>	
+				<br>
+				<div class="btnChoose btnOptions" id="option3">option 3</div>	
+			</div>
+			
+			<div class="btnCustom" id="btnNext" style="bottom:10px; right: 5%;">Next</div>
+
+			<div id="cntMenuPopUp">
+				<div class="menuPopUp" id="affectionMenuPopUp" value="closed">
+					<div class="menuTitles">
+						Affection Levels!
+					</div>
+
+					<div class="cntAffectionBars" id="cntAffectonAqua" style="top: 25%">
+						<div class="cntAffectionCharacterImg">
+							<img id="cntAqua" class="imgCharacter" src="images/girl1/aquaNeutral.png" style="position:absolute; left: 20%">
+						</div>
+
+						<div class="cntRunningOutOfStupidlyLongNamesToNameClasses">
+							<img class="cntAffectionCharacterBar" src="images/affectionBar.png">
+
+							<div class="cntAffectionCharacterBarHider" id="cntAffectionAquaBarHider">
+							</div>
+						</div>
+					</div>
+
+					<div class="cntAffectionBars" id="cntAffectionHiyrori" style="top: 50%;">
+						<div class="cntAffectionCharacterImg">
+							<img id="cntHiyori" class="imgCharacter" src="images/girl3/hiyoriHot.png" style="position:absolute; left: 30%">
+						</div>
+
+						<div class="cntRunningOutOfStupidlyLongNamesToNameClasses">
+							<img class="cntAffectionCharacterBar" src="images/affectionBar.png">
+
+							<div class="cntAffectionCharacterBarHider" id="cntAffectionHiyoriBarHider">
+							</div>
+						</div>
+					</div>
+
+					<div class="cntAffectionBars" id="cntAffectionMakise" style="top: 75%">
+						<div class="cntAffectionCharacterImg">
+							<img id="cntMakise" class="imgCharacter" src="images/girl2/makiseNeutral.png" style="position:absolute; left:30%">
+						</div>
+
+						<div class="cntRunningOutOfStupidlyLongNamesToNameClasses">
+							<img class="cntAffectionCharacterBar" src="images/affectionBar.png">
+
+							<div class="cntAffectionCharacterBarHider" id="cntAffectionMakiseBarHider">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="menuPopUp" id="inventoryMenuPopUp" value="closed">
+					<div class="menuTitles">
+						Inventory!
+					</div>
+
+					<div id="cntItemBox">
+						
+					</div>
+				</div>
+			</div>
+
+			<div id="cntMenus">
+				<div class="btnCustom btnMenu" id="affectionMenuPullUp">
+					<img class="imgMenu" src="images/affectionMenu.png">
+				</div>
+
+				<div style="top: 140px;" class="btnCustom btnMenu" id="inventoryPullUp">
+					<img class="imgMenu" src="images/itemsMenu.png">
+				</div>
+			</div>
+
+			<div class="itemNotifications">
+				Item Obtained:
+				<div class="itemObtainedText">
+					
+				</div>
+			</div>
+
+			<div id="cntSettings">
+				Toggle Music <button class="settingButtons" id="btnMusicOn">ON</button><button class="settingButtons" id="btnMusicOff">OFF</button>
+				<br>
+				Music Volume <button class="settingButtons" id="btnLow">LOW</button>
+				<button class="settingButtons" id="btnMedium">MEDIUM</button>
+				<button class="settingButtons" id="btnHigh">HIGH</button>
+				<br>
+				<button id="btnReset" class="settingButtons">RESET GAME</button>
+				Toggle Text SFX <button class="settingButtons" id="btnSFXOn">ON</button>
+				<button class="settingButtons" id="btnSFXOff">OFF</button>
+				<br>
+				Resolution <button class="settingButtons" id="btnFullscreen">FULLSCREEN</button>
+				<button class="settingButtons" id="btnWindowed">WINDOWED</button>
+			</div>
+
+			<div id="affectionNotifiction">
+				Affection Updated! <br>Check It Out!
+			</div>
+
+			<div id="black">
+				<div id="blackWordsNotRacist">Later...</div>
+				<img src="images/black.jpg">
+			</div>
+		</div>
+
+		<!-- card Matching Game -->
+		<div id="gameScreenCardMatchGame">
+			<div id="topBar">
+				Card Matching Game
+			</div>
+
+			<div id="gameSideBox">
+				<div class="menuBox" id="correctPairs">
+					Pairs: 0
+				</div>
+
+				<div class="menuBox" id="cardMatchingGamelives">
+					Lives Left: 3
+				</div>
+
+				<div class="menuBox menuBtn" id="btnHighScores">
+					HighScores!
+				</div>
+
+				<div class="menuBox menuBtn" id="btnQuit">
+					QUIT!
+				</div>
+			</div>
+
+			<div id="gameTable">
+				<div id='gameTableHider'>
+					
+				</div>
+
+				<div id="nextButtonCardMatchGame">
+					NEXT!
+				</div>
+
+				<div id="cntHighScores">
+					<div id="highScoreTitle">
+						Highest Scores:
+					</div>
+
+					<div class="highScoreNumbersCardGuess" id="firstPlaceScore">
+						Aqua: 20
+					</div>
+
+					<div class="highScoreNumbersCardGuess" id="secondPlaceScore">
+						Makise: 10
+					</div>
+
+					<div class="highScoreNumbersCardGuess" id="thirdPlaceScore">
+						Hiyori: 5
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- sajeivs game of goodness -->
+		<div id="cntGuessingGame">
+			<div id="cntLoser">
+				
+			</div>
+
+			<div id="cntGameSajeivGame">
+				<h1 class="groupTitle">Number Guessing Game</h1>
+				<h3 id="questionStatement" class="groupSubTitle">Guess the number of dogs in the picture:</h3>
+
+				<div id="round1">
+					<input type="text" id="txtGuess" class="groupGuess"><button id="btnGuess" class="groupGuess">Guess</button>
+					<br>
+				</div>
+
+				<div id="cntHint" class=groupHint>
+						HINT: IT'S A NUMBER BETWEEN 1 and 10!
+				</div>
+
+				<div id="round2">
+					<input type="text" id="txtGuess2" class="groupGuess"><button id="btnGuess2" class="groupGuess">Guess</button>
+					<br>
+				</div>
+
+				<div id="cntHint2" class=groupHint>
+						HINT: IT'S A NUMBER BETWEEN 10 and 30!
+				</div>
+
+				<div id="round3">
+					<input type="text" id="txtGuess3" class="groupGuess"><button id="btnGuess3" class="groupGuess">Guess</button>
+					<br>
+				</div>
+
+				<div id="cntHint3" class=groupHint>
+						HINT: There is less than 50!
+				</div>
+
+				<div id="round4">
+					<input type="text" id="txtGuess4" class="groupGuess"><button id="btnGuess4" class="groupGuess">Guess</button>
+					<br>
+				</div>
+
+				<div id="cntHint4" class=groupHint>
+						HINT: IT'S A NUMBER BETWEEN 1 and 500!
+				</div>
+
+				<div id="round5">
+					<input type="text" id="txtGuess5" class="groupGuess"><button id="btnGuess5" class="groupGuess">Guess</button>
+					<br>
+				</div>
+
+				<div id="cntHint5" class=groupHint>
+						HINT: Remember to convert into cents?
+				</div>
+				
+
+				<div id=cntLives>
+					Lives:20
+				</div>
+
+				<div id="cntGamePicture">
+					<img src="minigames/guessThatNumber/images/question1.jpg" id="question1" class="gamePicture">
+					<img src="minigames/guessThatNumber/images/question2.jpg" id="question2" class="gamePicture">
+					<img src="minigames/guessThatNumber/images/question3.jpg" id="question3" class="gamePicture">
+					<img src="minigames/guessThatNumber/images/question4.png" id="question4" class="gamePicture">
+					<img src="minigames/guessThatNumber/images/question5.jpg" id="question5" class="gamePicture">
+					<img src="minigames/guessThatNumber/images/youWin.jpg" id="youWin" class="gamePicture">
+				</div>
+			</div>
+
+			<div id="sajeivsQuitButtonForHisGame">
+				QUIT!
+			</div>
+		</div>
+
+		<div class="endScreenPicture" id="gameScreenSuccess">
+			<img class="endScreenPicture" src="images/marry.jpg" >
+		</div>
+
+		<div class="endScreenPicture" id="gameScreenFail">
+			<img class="endScreenPicture" src="images/frankie.jpg">
+		</div>
+	</body>
+</html>
