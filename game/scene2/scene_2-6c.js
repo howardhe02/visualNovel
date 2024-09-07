@@ -1,8 +1,6 @@
 /*
-Title:Loli Harem Paradise
-By:Howard,Sajeiv,Kowan
-Date Started:2019/1/11
-Description: i want to watch anime all day long and watch hentai but theres too much work and I have no sleep because im too lazy pls scene 2-6
+Title:Who's going to be my date?
+Description: i want to watch anime all day long but theres too much work and I have no sleep because im too lazy pls scene 2-6
 */
 
 $(document).ready(function($) {

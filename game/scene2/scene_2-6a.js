@@ -1,7 +1,5 @@
 /*
-Title:Loli Harem Paradise
-By:Howard,Sajeiv,Kowan
-Date Started:2019/1/11
+Title:Who's going to be my date?
 Description: We need a break pls.... longer than 20 hours of work...scene 2-6a
 */
 

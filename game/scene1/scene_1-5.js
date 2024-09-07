@@ -1,7 +1,5 @@
 /*
-Title:Loli Harem Paradise
-By:Howard,Sajeiv,Kowan
-Date Started:2019/1/11
+Title:Who's going to be my date?
 Description:This is the first scene to the game 1-5.
 */
 
@@ -64,7 +62,7 @@ $(document).ready(function($) {
 				//reshow hidden option boxes
 				$("#option3").show();
 				$(".btnChoose").css("background-color", "lightpink");
-				$("#gameScreen").fadeOut(1000).fadeIn(1000);
+				// $("#gameScreen").fadeOut(1000).fadeIn(1000);
 				$("#gameScreen").css("background-image", "url(images/backgroundFestival.jpg)");
 				dialogueNumber=0;
 			}

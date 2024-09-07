@@ -1,7 +1,5 @@
 /*
-Title:Loli Harem Paradise
-By:Howard,Sajeiv,Kowan
-Date Started:2019/1/11
+Title:Who's going to be my date?
 Description:This is the scene to the game 2-4a. Aqua's path.
 */
 

@@ -1,7 +1,5 @@
 /*
-Title:Loli Harem Paradise
-By:Howard,Sajeiv,Kowan
-Date Started:2019/1/11
+Title:Who's going to be my date?
 Description: The general code for the game
 */
 
@@ -128,7 +126,7 @@ $(document).ready(function($) {
 
 			if(dialogueNumber==(dialogueLength+1)){
 				scene="1-1";
-				$("#gameScreen").fadeOut().fadeIn();
+				// $("#gameScreen").fadeOut().fadeIn();
 				$("#gameScreen").css("background-image", "url(images/backgroundSchool.jpg)");
 				dialogueNumber=0;
 			}

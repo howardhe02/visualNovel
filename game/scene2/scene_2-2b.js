@@ -1,7 +1,5 @@
 /*
-Title:Loli Harem Paradise
-By:Howard,Sajeiv,Kowan
-Date Started:2019/1/11
+Title:Who's going to be my date?
 Description:This is the second scene to the game, makises path 2-2b.
 */
 
@@ -72,7 +70,7 @@ $(document).ready(function($) {
 					//I have to hide the one you already clicked on because you don't want to visit the same girl twice
 					//reshow hidden option boxes
 					$(".btnChoose").css("background-color", "lightpink");
-					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					// $("#gameScreen").fadeOut(1000).fadeIn(1000);
 					$("#gameScreen").css("background-image", "url(images/backgroundFestival.jpg)");
 					dialogueNumber=0;
 					$("#cntMakise").hide();

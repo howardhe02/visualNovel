@@ -234,10 +234,10 @@ $(document).ready(function($) {
 			],
 
 			[
-				"Loli",
-				"Harem",
-				"Ecchi",
-				"Yuri"
+				"Fish",
+				"Cat",
+				"Dog",
+				"Monkey"
 			],
 
 			[

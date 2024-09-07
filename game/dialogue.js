@@ -1,7 +1,5 @@
 /*
-Title:Loli Harem Paradise
-By:Howard,Sajeiv,Kowan
-Date Started:2019/1/11
+Title:Who's going to be my date?
 Description:This is the main page containing all the dialogue for the game.
 */
 
@@ -248,7 +246,7 @@ $(document).ready(function($) {
 				"The teacher gives back your tests*",
 				"Wow. I'm so surpised, I got 100% again.",
 				"What did you get? Show me!",
-				"HAHAHAHA! What a retard! 12/100? How are you even that stupid?",
+				"HAHAHAHA! What an idiot! 12/100? How are you even that stupid?",
 				"It was all multiple choice, and there were 4 options.",
 				"If you guessed everything you could've gotten around 25%",
 				"You are actually so stupid.",

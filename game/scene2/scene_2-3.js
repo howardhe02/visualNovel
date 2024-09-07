@@ -1,7 +1,5 @@
 /*
-Title:Loli Harem Paradise
-By:Howard,Sajeiv,Kowan
-Date Started:2019/1/11
+Title:Who's going to be my date?
 Description:This is the third scene to the game 2-3.
 */
 
@@ -62,7 +60,7 @@ $(document).ready(function($) {
 					scene="2-4a";
 
 					$(".btnChoose").css("background-color", "lightpink");
-					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					// $("#gameScreen").fadeOut(1000).fadeIn(1000);
 					$("#gameScreen").css("background-image", "url(images/backgroundFestival.jpg)");
 					dialogueNumber=0;	
 					optionValue=null;
@@ -73,7 +71,7 @@ $(document).ready(function($) {
 					scene="2-4b";
 
 					$(".btnChoose").css("background-color", "lightpink");
-					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					// $("#gameScreen").fadeOut(1000).fadeIn(1000);
 					$("#gameScreen").css("background-image", "url(images/backgroundFestival.jpg)");
 					dialogueNumber=0;	
 					optionValue=null;	
@@ -84,7 +82,7 @@ $(document).ready(function($) {
 					scene="2-4c";
 
 					$(".btnChoose").css("background-color", "lightpink");
-					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					// $("#gameScreen").fadeOut(1000).fadeIn(1000);
 					$("#gameScreen").css("background-image", "url(images/backgroundFestival.jpg)");
 					dialogueNumber=0;
 					optionValue=null;

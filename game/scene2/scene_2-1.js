@@ -1,7 +1,5 @@
 /*
-Title:Loli Harem Paradise
-By:Howard,Sajeiv,Kowan
-Date Started:2019/1/11
+Title:Who's going to be my date?
 Description:This is the first scene to the game 2-1.
 */
 
@@ -203,7 +201,7 @@ $(document).ready(function($) {
 					//reshow hidden option boxes
 					$(".btnChoose").show();
 					$(".btnChoose").css("background-color", "lightpink");
-					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					// $("#gameScreen").fadeOut(1000).fadeIn(1000);
 					$("#gameScreen").css("background-image", "url(images/backgroundFestivalAqua.jpg)");
 					dialogueNumber=0;
 					$("#cntAqua").show();					
@@ -213,7 +211,7 @@ $(document).ready(function($) {
 					//reshow hidden option boxes
 					$(".btnChoose").show();
 					$(".btnChoose").css("background-color", "lightpink");
-					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					// $("#gameScreen").fadeOut(1000).fadeIn(1000);
 					$("#gameScreen").css("background-image", "url(images/backgroundFestivalMakise.jpg)");
 					dialogueNumber=0;
 					$("#cntMakise").show();	
@@ -224,7 +222,7 @@ $(document).ready(function($) {
 					//reshow hidden option boxes
 					$(".btnChoose").show();
 					$(".btnChoose").css("background-color", "lightpink");
-					$("#gameScreen").fadeOut(1000).fadeIn(1000);
+					// $("#gameScreen").fadeOut(1000).fadeIn(1000);
 					$("#gameScreen").css("background-image", "url(images/backgroundFestivalHiyori.jpg)");
 					dialogueNumber=0;
 					$("#cntHiyori").show();	
